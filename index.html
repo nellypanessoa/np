@@ -121,25 +121,34 @@
       <div class="service-layout">
         <div class="service-copy">
           <p class="kicker blue">1:1 · Virtual</p>
-          <h2>Spanish lessons built around your goals.</h2>
-          <p>Personalized online tutoring for English-speaking adults. Improve your conversation, pronunciation, vocabulary, and confidence through practical sessions designed for your level, interests, and schedule.</p>
+          <h2>Spanish conversation built around your goals.</h2>
+          <p>Practice Spanish one-on-one with a native speaker. These personalized virtual sessions help English-speaking adults improve their conversation, pronunciation, vocabulary, and confidence at every proficiency level.</p>
           <ul class="feature-list">
+            <li>Conversation with a native Spanish speaker</li>
+            <li>Beginner, intermediate, and advanced levels</li>
             <li>Private virtual sessions</li>
             <li>Flexible weekly schedule</li>
             <li>Real-world conversational practice</li>
-            <li>Personalized learning plan</li>
           </ul>
         </div>
 
         <form class="request-form" id="spanish-form" data-service="Spanish Classes" data-language="en">
           <div class="form-heading">
             <p>Request your first conversation</p>
-            <span>Complete the form and send your details through WhatsApp.</span>
+            <span>Complete the form and send your details by text message.</span>
           </div>
           <div class="form-grid">
             <label>Full name<input type="text" name="name" autocomplete="name" required></label>
             <label>Email<input type="email" name="email" autocomplete="email" required></label>
-            <label class="full">WhatsApp or phone number<input type="tel" name="phone" autocomplete="tel" required></label>
+            <label class="full">Mobile phone number<input type="tel" name="phone" autocomplete="tel" required></label>
+            <label class="full">Current Spanish level
+              <select name="level" required>
+                <option value="">Select your level</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced / Expert</option>
+              </select>
+            </label>
             <fieldset class="full">
               <legend>Days you are available</legend>
               <div class="checks">
@@ -168,8 +177,8 @@
             </label>
             <label>Hours per week<input type="number" name="weekly_hours" min="1" max="10" step="1" required></label>
           </div>
-          <button class="submit-button" type="submit">Send request via WhatsApp <span aria-hidden="true">↗</span></button>
-          <p class="form-note">Your information is not stored on this website. WhatsApp will open with a message for you to review before sending.</p>
+          <button class="submit-button" type="submit">Send request by SMS <span aria-hidden="true">↗</span></button>
+          <p class="form-note">Your information is not stored on this website. Your text messaging app will open with a draft for you to review before sending.</p>
         </form>
       </div>
     </section>
