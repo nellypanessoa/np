@@ -116,6 +116,9 @@ legend { padding: 0 .4rem; }
 .service-cta-card h3 { margin: .8rem 0 1.5rem; font: 400 clamp(2.4rem, 4.5vw, 4.5rem)/1 var(--serif); letter-spacing: -.035em; }
 .service-cta-card p:not(.kicker) { max-width: 38rem; color: #d7e4f0; }
 .service-cta-card .submit-button { margin-top: 3rem; }
+.translation-services { background: var(--aqua); }
+.translation-card { background: color-mix(in srgb, var(--white) 82%, transparent); }
+.translation-card p:not(.kicker) { color: var(--ink); }
 .digital-services { background: var(--white); }
 .digital-grid article { min-height: 28rem; }
 .advisory-heading { display: grid; grid-template-columns: 1.15fr .85fr; gap: 5rem; align-items: end; margin: 4rem 0; }
