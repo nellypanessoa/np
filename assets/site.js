@@ -42,29 +42,6 @@ document.querySelector('#spanish-form')?.addEventListener('submit', (event) => {
   openWhatsApp(message);
 });
 
-document.querySelector('#notary-form')?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const services = valuesFor(form, 'services');
-  if (!services.length) {
-    window.alert('Selecciona al menos un servicio requerido.');
-    form.querySelector('[name="services"]')?.focus();
-    return;
-  }
-  const message = [
-    'NOTARÍA PÚBLICA MA — NUEVA SOLICITUD',
-    '',
-    `Nombre: ${valueFor(form, 'name')}`,
-    `Correo: ${valueFor(form, 'email')}`,
-    `Teléfono / WhatsApp: ${valueFor(form, 'phone')}`,
-    `Servicios: ${services.join(', ')}`,
-    `Páginas para traducir: ${valueFor(form, 'translation_pages')}`,
-    `Autenticaciones requeridas: ${valueFor(form, 'notarizations')}`,
-    `Descripción: ${valueFor(form, 'details')}`
-  ].join('\n');
-  openWhatsApp(message);
-});
-
 document.querySelectorAll('.whatsapp-interest').forEach((link) => {
   const interest = link.dataset.interest;
   link.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola Nelly, me interesa recibir información sobre: ${interest}.`)}`;
