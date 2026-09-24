@@ -1,4 +1,5 @@
 const whatsappNumber = '18572011220';
+const smsNumber = '+18572011220';
 const menu = document.querySelector('.menu');
 const nav = document.querySelector('#nav');
 
@@ -18,6 +19,10 @@ nav?.addEventListener('click', (event) => {
 const valuesFor = (form, name) => [...form.querySelectorAll(`[name="${name}"]:checked`)].map((input) => input.value);
 const valueFor = (form, name) => form.elements[name]?.value.trim() || '';
 const openWhatsApp = (message) => window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+const openSMS = (message) => {
+  const separator = /iPad|iPhone|iPod/.test(navigator.userAgent) ? '&' : '?';
+  window.location.href = `sms:${smsNumber}${separator}body=${encodeURIComponent(message)}`;
+};
 
 document.querySelector('#spanish-form')?.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -33,13 +38,14 @@ document.querySelector('#spanish-form')?.addEventListener('submit', (event) => {
     '',
     `Name: ${valueFor(form, 'name')}`,
     `Email: ${valueFor(form, 'email')}`,
-    `Phone / WhatsApp: ${valueFor(form, 'phone')}`,
+    `Mobile phone: ${valueFor(form, 'phone')}`,
+    `Current Spanish level: ${valueFor(form, 'level')}`,
     `Available days: ${days.join(', ')}`,
     `Preferred times: ${valueFor(form, 'times')}`,
     `Time zone: ${valueFor(form, 'timezone')}`,
     `Hours per week: ${valueFor(form, 'weekly_hours')}`
   ].join('\n');
-  openWhatsApp(message);
+  openSMS(message);
 });
 
 document.querySelectorAll('.whatsapp-interest').forEach((link) => {
