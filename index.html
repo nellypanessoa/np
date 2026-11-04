@@ -171,10 +171,8 @@
         <p>Asimismo, a través de <strong>Contenido Archivístico</strong>, recibo propuestas de materiales académicos y profesionales previamente elaborados que contribuyan a la difusión del conocimiento y al fortalecimiento de nuestra disciplina. Su publicación estará sujeta a una revisión y selección editorial previa.</p>
         <p>Por el momento, no estoy realizando nuevas grabaciones de entrevistas ni conferencias, pero continúo promoviendo el intercambio de conocimientos mediante los contenidos disponibles y las contribuciones de nuestra comunidad.</p>
       </div>
-      <form id="contact-form" class="unified-form" action="https://formsubmit.co/nellypanessoa@gmail.com" method="POST">
-        <input type="hidden" name="_subject" id="contact-subject" value="Nueva solicitud desde Nelly Panesso">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://nellypanessoa.github.io/np/gracias.html">
+      <form id="contact-form" class="unified-form" action="mailto:nellypanessoa@gmail.com" method="POST" enctype="text/plain">
+        <input type="hidden" name="_subject" id="contact-subject" value="Solicitud desde Nelly Panesso">
         <input type="text" name="_honey" class="anti-spam" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="unified-form-grid">
           <label>Nombre y apellidos *<input name="Nombre" type="text" autocomplete="name" required maxlength="120"></label>
@@ -208,9 +206,18 @@
           </label>
         </div>
         <label class="unified-consent"><input name="Autorización" type="checkbox" value="Autorizo contacto para responder la solicitud" required> Autorizo el tratamiento de los datos facilitados exclusivamente para responder a esta solicitud. *</label>
-        <p class="form-privacy">Este formulario utiliza FormSubmit, un servicio externo que tramita el mensaje para enviarlo por correo. No incluyas contraseñas ni información sensible. La publicación de materiales académicos está sujeta a revisión editorial.</p>
-        <button class="contact-submit" type="submit">Enviar solicitud <span aria-hidden="true">↗</span></button>
-        <p class="form-fallback">También puedes escribir a <a href="mailto:nellypanessoa@gmail.com">nellypanessoa@gmail.com</a>.</p>
+        <p class="form-privacy"><strong>Envío temporal por correo:</strong> estamos ajustando el envío automático debido a una interrupción del proveedor. Al continuar, prepararemos un mensaje con tus datos para que puedas enviarlo desde tu aplicación de correo. No se enviará automáticamente desde esta página. No incluyas información sensible.</p>
+        <button class="contact-submit" type="submit">Preparar correo con mi solicitud <span aria-hidden="true">↗</span></button>
+        <div id="contact-ready" class="contact-ready" role="status" aria-live="polite" hidden>
+          <strong>Tu solicitud está preparada, pero aún no se ha enviado.</strong>
+          <p>Selecciona «Abrir mi correo», revisa el mensaje y presiona Enviar en tu aplicación de correo. Si no se abre automáticamente, copia el texto y envíalo a <strong>nellypanessoa@gmail.com</strong>.</p>
+          <div class="contact-ready-actions">
+            <a href="mailto:nellypanessoa@gmail.com" id="contact-email-link">Abrir mi correo ↗</a>
+            <button id="contact-copy" type="button">Copiar solicitud</button>
+          </div>
+          <p id="contact-copy-status" class="contact-copy-status"></p>
+        </div>
+        <p class="form-fallback">Contacto directo: <a href="mailto:nellypanessoa@gmail.com">nellypanessoa@gmail.com</a>.</p>
       </form>
     </section>
   </main>
