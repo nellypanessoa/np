@@ -251,3 +251,13 @@ footer p:last-child { text-align: right; }
 .contact-submit:hover,.contact-submit:focus-visible{background:var(--blue)}
 .unified-form .anti-spam{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
 @media(max-width:580px){.unified-form-grid{grid-template-columns:1fr}.unified-form-grid label{grid-column:1/-1}.unified-form{margin-top:2rem}}
+
+/* Formsubmit fallback interface */
+.contact-ready{margin-top:1.25rem;padding:1.2rem;border:1px solid #7796a1;background:#edf5f6;color:#203244;font-size:.88rem;line-height:1.6}
+.contact-ready[hidden]{display:none!important}
+.contact-ready p{margin:.6rem 0 0}
+.contact-ready-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem}
+.contact-ready-actions a,.contact-ready-actions button{display:inline-flex;align-items:center;justify-content:center;min-height:2.7rem;padding:.6rem .9rem;font-weight:700;font-size:.87rem;cursor:pointer;border:1px solid #203244;background:#203244;color:#fff;text-decoration:none}
+.contact-ready-actions button{background:#fff;color:#203244}
+.contact-copy-status{font-size:.78rem}
+@media(max-width:560px){.contact-ready-actions{flex-direction:column}.contact-ready-actions a,.contact-ready-actions button{width:100%}}
