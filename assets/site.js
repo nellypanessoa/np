@@ -5,8 +5,8 @@ menu?.addEventListener('click', () => {
   menu.setAttribute('aria-expanded', String(!open));
   nav?.classList.toggle('open', !open);
 });
-nav?.addEventListener('click', event => {
-  if (event.target.matches('a')) {
+nav?.addEventListener('click', (event) => {
+  if (event.target instanceof Element && event.target.closest('a')) {
     nav.classList.remove('open');
     menu?.setAttribute('aria-expanded', 'false');
   }
@@ -14,64 +14,61 @@ nav?.addEventListener('click', event => {
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
 
-const serviceSelect = document.querySelector('#contact-service');
-const subjectInput = document.querySelector('#contact-subject');
-const messageInput = document.querySelector('#contact-message');
-function updateContactForm() {
-  const type = serviceSelect?.value || '';
-  if (subjectInput) subjectInput.value = type ? 'Nueva solicitud web: ' + type : 'Nueva solicitud desde Nelly Panesso';
-  if (messageInput) messageInput.placeholder = type === 'Material académico para Contenido Archivístico'
-    ? 'Indica el título, autores, temática y enlace de consulta del material ya elaborado. Su publicación requiere revisión editorial.'
-    : 'Explica tus necesidades, objetivos y el alcance aproximado de tu solicitud.';
+const topic = document.querySelector('#contact-service');
+const name = document.querySelector('#contact-name');
+const message = document.querySelector('#contact-message');
+const whatsapp = document.querySelector('#contact-whatsapp');
+const email = document.querySelector('#contact-email');
+const topicNote = document.querySelector('#contact-topic-note');
+const whatsappNumber = '18572011220';
+const emailAddress = 'nellypanessoa@gmail.com';
+
+function contactDraft() {
+  const interest = topic?.value?.trim() || '';
+  const person = name?.value?.trim() || '';
+  const details = message?.value?.trim() || '';
+  const lines = [
+    'Hola, Nelly.',
+    '',
+    'Me comunico desde tu página web.',
+    'Tema de interés: ' + interest,
+  ];
+  if (person) lines.push('Nombre: ' + person);
+  if (details) lines.push('', 'Mi consulta:', details);
+  lines.push('', 'Quedo pendiente de tu respuesta. Muchas gracias.');
+  return lines.join('\n');
 }
-serviceSelect?.addEventListener('change', updateContactForm);
+function updateContactLinks() {
+  const interest = topic?.value?.trim() || '';
+  const draft = contactDraft();
+  if (whatsapp) whatsapp.href = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(draft);
+  if (email) email.href = 'mailto:' + emailAddress + '?subject=' +
+    encodeURIComponent('Consulta desde la web: ' + (interest || 'Tema por seleccionar')) +
+    '&body=' + encodeURIComponent(draft);
+  if (topicNote) topicNote.textContent = interest
+    ? 'Tema seleccionado: ' + interest + '. Se incluirá en tu mensaje.'
+    : 'Selecciona primero el tema de interés. Lo incluiremos automáticamente en tu mensaje.';
+}
+function requireTopic(event) {
+  if (topic?.value) return;
+  event.preventDefault();
+  if (topicNote) topicNote.textContent = 'Selecciona un tema para continuar por WhatsApp o correo.';
+  topic?.focus();
+}
+[topic, name, message].forEach(field => {
+  field?.addEventListener('input', updateContactLinks);
+  field?.addEventListener('change', updateContactLinks);
+});
+whatsapp?.addEventListener('click', requireTopic);
+email?.addEventListener('click', requireTopic);
+
 document.querySelectorAll('.request-service').forEach(link => {
   link.addEventListener('click', () => {
-    const interest = link.dataset.interest;
-    if (serviceSelect && [...serviceSelect.options].some(option => option.value === interest)) {
-      serviceSelect.value = interest;
-      updateContactForm();
+    const interest = link.dataset.interest || '';
+    if (topic && Array.from(topic.options).some(option => option.value === interest)) {
+      topic.value = interest;
+      updateContactLinks();
     }
   });
 });
-updateContactForm();
-
-/* Formsubmit backup: use a local mail draft instead of the failing external endpoint. */
-const contactForm = document.querySelector('#contact-form');
-const contactReady = document.querySelector('#contact-ready');
-const contactEmailLink = document.querySelector('#contact-email-link');
-const contactCopy = document.querySelector('#contact-copy');
-const contactCopyStatus = document.querySelector('#contact-copy-status');
-let preparedContactText = '';
-contactForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  if (!contactForm.reportValidity()) return;
-  const values = new FormData(contactForm);
-  const type = String(values.get('Servicio solicitado') || 'Consulta profesional');
-  const order = ['Nombre', 'email', 'Teléfono o WhatsApp', 'Organización', 'Servicio solicitado', 'Ciudad y país', 'Plazo', 'Descripción de la solicitud'];
-  const labels = {'email':'Correo electrónico'};
-  const entries = order.map(key => {
-    const value = String(values.get(key) || '').trim();
-    return value ? (labels[key] || key) + ': ' + value : null;
-  }).filter(Boolean);
-  preparedContactText = 'Solicitud desde nellypanessoa.github.io/np/' + '\n\n' + entries.join('\n\n') +
-    '\n\nAutorización para responder a esta solicitud: Sí';
-  const subject = 'Solicitud web - ' + type;
-  const mailto = 'mailto:nellypanessoa@gmail.com?subject=' + encodeURIComponent(subject) +
-    '&body=' + encodeURIComponent(preparedContactText);
-  if(contactEmailLink) contactEmailLink.href = mailto;
-  if(contactCopyStatus) contactCopyStatus.textContent = '';
-  if(contactReady) {
-    contactReady.hidden = false;
-    contactReady.scrollIntoView({behavior:'smooth',block:'center'});
-  }
-});
-contactCopy?.addEventListener('click', async () => {
-  if (!preparedContactText) return;
-  try {
-    await navigator.clipboard.writeText(preparedContactText);
-    if(contactCopyStatus) contactCopyStatus.textContent = 'Texto copiado. Pégalo en un correo nuevo a nellypanessoa@gmail.com.';
-  } catch {
-    if(contactCopyStatus) contactCopyStatus.textContent = 'No fue posible copiarlo automáticamente. Abre tu aplicación de correo con el botón anterior.';
-  }
-});
+updateContactLinks();
