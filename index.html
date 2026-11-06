@@ -171,54 +171,34 @@
         <p>Asimismo, a través de <strong>Contenido Archivístico</strong>, recibo propuestas de materiales académicos y profesionales previamente elaborados que contribuyan a la difusión del conocimiento y al fortalecimiento de nuestra disciplina. Su publicación estará sujeta a una revisión y selección editorial previa.</p>
         <p>Por el momento, no estoy realizando nuevas grabaciones de entrevistas ni conferencias, pero continúo promoviendo el intercambio de conocimientos mediante los contenidos disponibles y las contribuciones de nuestra comunidad.</p>
       </div>
-      <form id="contact-form" class="unified-form" action="mailto:nellypanessoa@gmail.com" method="POST" enctype="text/plain">
-        <input type="hidden" name="_subject" id="contact-subject" value="Solicitud desde Nelly Panesso">
-        <input type="text" name="_honey" class="anti-spam" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="unified-form-grid">
-          <label>Nombre y apellidos *<input name="Nombre" type="text" autocomplete="name" required maxlength="120"></label>
-          <label>Correo electrónico *<input name="email" type="email" autocomplete="email" required maxlength="180"></label>
-          <label>Teléfono o WhatsApp<input name="Teléfono o WhatsApp" type="tel" autocomplete="tel" maxlength="45"></label>
-          <label>Organización o institución<input name="Organización" type="text" autocomplete="organization" maxlength="150"></label>
-          <label class="wide">Servicio o propuesta que necesitas *
-            <select name="Servicio solicitado" id="contact-service" required>
-              <option value="">Selecciona una opción</option>
+      <div class="contact-simple" id="contact-simple">
+        <p class="contact-simple-intro">Selecciona el tema de tu consulta y elige cómo prefieres comunicarte. Prepararemos un mensaje que podrás revisar antes de enviarlo.</p>
+        <div class="contact-simple-fields">
+          <label for="contact-service">¿Sobre qué tema deseas comunicarte? <span aria-hidden="true">*</span>
+            <select id="contact-service" name="tema" required>
+              <option value="">Selecciona el tema de interés</option>
               <option value="Consultoría y asesoría archivística">Consultoría y asesoría archivística</option>
               <option value="Organización y administración documental">Organización y administración documental</option>
               <option value="Formación y capacitación en gestión documental">Formación y capacitación especializada</option>
               <option value="Asesoría académica y profesional">Asesoría académica y profesional</option>
-              <option value="Material académico para Contenido Archivístico">Material académico ya elaborado para Contenido Archivístico</option>
+              <option value="Material académico para Contenido Archivístico">Propuesta de material académico ya elaborado para Contenido Archivístico</option>
               <option value="Otra consulta profesional">Otra consulta relacionada con la archivística</option>
             </select>
           </label>
-          <label>Ciudad y país<input name="Ciudad y país" type="text" maxlength="100"></label>
-          <label>Plazo previsto
-            <select name="Plazo">
-              <option value="Por definir">Por definir</option>
-              <option>Lo antes posible</option>
-              <option>Próximo mes</option>
-              <option>Próximos tres meses</option>
-              <option>Más adelante</option>
-              <option>No aplica</option>
-            </select>
+          <label for="contact-name">Tu nombre (opcional)
+            <input type="text" id="contact-name" name="nombre" maxlength="100" autocomplete="name" placeholder="¿Cómo te llamas?">
           </label>
-          <label class="wide">Describe qué necesitas *
-            <textarea name="Descripción de la solicitud" id="contact-message" rows="6" minlength="20" maxlength="3000" required placeholder="Explica tus necesidades, objetivos y el alcance aproximado de tu solicitud."></textarea>
+          <label class="wide" for="contact-message">Cuéntame brevemente qué necesitas (opcional)
+            <textarea id="contact-message" name="consulta" rows="4" maxlength="700" placeholder="Ej.: Necesitamos asesoría para actualizar nuestros instrumentos archivísticos."></textarea>
           </label>
         </div>
-        <label class="unified-consent"><input name="Autorización" type="checkbox" value="Autorizo contacto para responder la solicitud" required> Autorizo el tratamiento de los datos facilitados exclusivamente para responder a esta solicitud. *</label>
-        <p class="form-privacy"><strong>Envío temporal por correo:</strong> estamos ajustando el envío automático debido a una interrupción del proveedor. Al continuar, prepararemos un mensaje con tus datos para que puedas enviarlo desde tu aplicación de correo. No se enviará automáticamente desde esta página. No incluyas información sensible.</p>
-        <button class="contact-submit" type="submit">Preparar correo con mi solicitud <span aria-hidden="true">↗</span></button>
-        <div id="contact-ready" class="contact-ready" role="status" aria-live="polite" hidden>
-          <strong>Tu solicitud está preparada, pero aún no se ha enviado.</strong>
-          <p>Selecciona «Abrir mi correo», revisa el mensaje y presiona Enviar en tu aplicación de correo. Si no se abre automáticamente, copia el texto y envíalo a <strong>nellypanessoa@gmail.com</strong>.</p>
-          <div class="contact-ready-actions">
-            <a href="mailto:nellypanessoa@gmail.com" id="contact-email-link">Abrir mi correo ↗</a>
-            <button id="contact-copy" type="button">Copiar solicitud</button>
-          </div>
-          <p id="contact-copy-status" class="contact-copy-status"></p>
+        <p class="contact-simple-note" id="contact-topic-note">Al elegir el tema, lo incluiremos automáticamente en tu mensaje.</p>
+        <div class="contact-direct-actions">
+          <a class="contact-direct whatsapp-direct" id="contact-whatsapp" href="https://wa.me/18572011220" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp <span aria-hidden="true">↗</span></a>
+          <a class="contact-direct email-direct" id="contact-email" href="mailto:nellypanessoa@gmail.com">Enviar un correo <span aria-hidden="true">↗</span></a>
         </div>
-        <p class="form-fallback">Contacto directo: <a href="mailto:nellypanessoa@gmail.com">nellypanessoa@gmail.com</a>.</p>
-      </form>
+        <p class="contact-simple-disclaimer">Se abrirá WhatsApp o tu aplicación de correo con el texto preparado. Podrás editarlo y tendrás que pulsar <strong>Enviar</strong> allí. No se almacenan estos datos en el sitio web.</p>
+      </div>
     </section>
   </main>
   <footer>
