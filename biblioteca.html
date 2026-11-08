@@ -93,7 +93,7 @@ select:disabled {color:#95a0a6;background:#f3f4f3}
    <h2>Explorar catálogo</h2>
    <div class="filtergrid">
     <div><label class="label" for="query">Buscar por título</label><input id="query" type="search" placeholder="Ej. valoración documental" autocomplete="off"></div>
-    <div><label class="label" for="guest">Invitado o conferencista</label><input id="guest" type="search" placeholder="Nombre o apellido" autocomplete="off"></div>
+    <div><label class="label" for="guest">Invitado o conferencista</label><select id="guest"><option value="">Todos los invitados</option></select><p class="hint">Nombres organizados alfabéticamente según el inventario.</p></div>
     <div><label class="label" for="theme">Temática</label><select id="theme"><option value="">Todas las temáticas</option></select></div>
     <div><label class="label" for="year">Año de publicación</label><select id="year"><option value="">Todos los años</option></select></div>
     <div><label class="label" for="country">País registrado</label><select id="country"><option value="">Todos los países</option></select></div>
@@ -120,6 +120,8 @@ const norm=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLo
 const frag=document.createDocumentFragment();
 const state={shown:12};
 function option(select,label,value){const o=document.createElement("option");o.value=value;o.textContent=label;select.appendChild(o)}
+const guests=[...new Set(VIDEOS.flatMap(v=>v.invitados).map(n=>n.trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es",{sensitivity:"base"}));
+guests.forEach(n=>option($("guest"),n,n));
 const topics=[...new Set(VIDEOS.flatMap(v=>v.temas))].sort((a,b)=>a.localeCompare(b,"es"));
 topics.forEach(v=>option($("theme"),v,v));
 option($("theme"),"Sin clasificar","__sin__");
@@ -162,10 +164,10 @@ function ficha(v){
  return card;
 }
 function candidates(){
- const q=norm($("query").value),g=norm($("guest").value),t=$("theme").value,y=$("year").value,c=$("country").value;
+ const q=norm($("query").value),g=$("guest").value,t=$("theme").value,y=$("year").value,c=$("country").value;
  const matched=VIDEOS.filter(v=>
    (!q||norm(v.titulo_original).includes(q))&&
-   (!g||v.invitados.some(n=>norm(n).includes(g)))&&
+   (!g||v.invitados.includes(g))&&
    (!t||(t==="__sin__"?!v.temas.length:v.temas.includes(t)))&&
    (!y||String(v.anio)===y)&&
    (!c||(c==="__sin__"?!v.paises.length:v.paises.includes(c)))
@@ -183,8 +185,8 @@ function render(){
  const batch=document.createDocumentFragment();visible.forEach(v=>batch.appendChild(ficha(v)));target.appendChild(batch);
  $("loadmore").hidden=state.shown>=items.length;
 }
-["query","guest"].forEach(id=>$(id).addEventListener("input",()=>{state.shown=12;render()}));
-["theme","year","country","sort"].forEach(id=>$(id).addEventListener("change",()=>{state.shown=12;render()}));
+$("query").addEventListener("input",()=>{state.shown=12;render()});
+["guest","theme","year","country","sort"].forEach(id=>$(id).addEventListener("change",()=>{state.shown=12;render()}));
 $("loadmore").addEventListener("click",()=>{state.shown+=12;render()});
 $("reset").addEventListener("click",()=>{$("query").value="";$("guest").value="";$("theme").value="";$("year").value="";$("country").value="";$("sort").value="newest";state.shown=12;render()});
 render();
