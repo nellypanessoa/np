@@ -32,6 +32,28 @@
     .np-action:hover,.np-action:focus-visible{outline:2px solid var(--red);outline-offset:3px}
     .np-english{background:var(--white);max-width:none}
     .np-english>.np-inner{max-width:65rem;margin:0 auto}
+
+    .np-hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.3rem 0 0}
+    .np-hero-action{padding:.72rem 1.05rem;color:var(--ink);background:var(--aqua);font-weight:700;text-decoration:none;border-radius:5px}
+    .np-hero-action.secondary{background:transparent;color:var(--white);border:1px solid #ffffff88}
+    .np-quote{margin-top:3.2rem;border-top:1px solid var(--line);padding-top:2.5rem;scroll-margin-top:6rem}
+    .np-quote h3{font:400 clamp(2rem,3.5vw,3.2rem)/1.05 var(--serif);letter-spacing:-.03em;margin:.5rem 0 1rem}
+    .np-quote>p:not(.kicker){max-width:58rem}
+    .np-quote-form{margin-top:1.5rem}
+    .np-quote-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem 1.3rem}
+    .np-quote-grid label{display:flex;flex-direction:column;min-width:0;gap:.35rem}
+    .np-quote-grid label span{font-size:.9rem;font-weight:600}
+    .np-quote-grid input,.np-quote-grid select,.np-quote-grid textarea{display:block;width:100%;border:1px solid #647481;border-radius:5px;background:#fff;color:var(--ink);min-height:2.85rem;padding:.7rem .8rem;font:400 .96rem var(--sans)}
+    .np-quote-grid textarea{resize:vertical;min-height:6rem}
+    .np-quote-grid :is(input,select,textarea):focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+    .np-quote-wide{grid-column:1/-1}
+    .np-quote-privacy,.np-quote-hint{font-size:.84rem;color:#435160}
+    .np-quote-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.5rem 0 0}
+    .np-quote-button{min-height:3rem;padding:.75rem 1rem;border:1px solid var(--ink);border-radius:4px;background:transparent;color:var(--ink);font:600 .95rem var(--sans);cursor:pointer}
+    .np-quote-button.primary{background:var(--ink);color:var(--white)}
+    .np-quote-button:hover,.np-quote-button:focus-visible,.np-hero-action:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+    .np-quote-status{font-weight:600;color:var(--blue);min-height:1.4rem}
+    @media(max-width:650px){.np-quote-grid{grid-template-columns:1fr}.np-quote-actions{flex-direction:column}.np-quote-button{width:100%}}
     .np-footer{padding:2rem clamp(1.25rem,6vw,6rem);background:var(--ink);color:var(--white);font-size:.86rem}
     .np-footer a{color:var(--aqua)}
     .np-footer p{max-width:67rem}
@@ -54,6 +76,7 @@
       <h1>Notary Public <em>Massachusetts.</em></h1>
       <p class="np-lead">Información para personas que se encuentran en Massachusetts. Si tienes familiares o amigos en este estado, puedes compartirles esta página para que conozcan el servicio y los requisitos de atención.</p>
       <p class="np-status"><strong>Disponibilidad pendiente de confirmación.</strong> La atención de citas se habilitará únicamente después de completar el juramento y verificar los requisitos necesarios para ejercer.</p>
+      <p class="np-hero-actions"><a class="np-hero-action" href="#quote-es">Solicitar cotización ↗</a><a class="np-hero-action secondary" href="#quote-en">Request a quote ↗</a></p>
     </section>
     <aside class="np-warning" aria-label="Información legal importante" lang="es">
       <strong>Información legal importante</strong>
@@ -74,8 +97,29 @@
       <h3>Antes de solicitar el servicio</h3>
       <p>Ten a mano el documento completo y una identificación aceptable. Para los actos presenciales es necesario que comparezca la persona firmante. La disponibilidad, ubicación de atención y tarifas se confirmarán antes de acordar una cita. No se realizan actos notariales fuera de Massachusetts.</p>
       <p><strong>Para recomendarlo:</strong> comparte el enlace de esta página con familiares y amigos que necesiten el servicio en Massachusetts.</p>
-      <a class="np-action primary" href="sms:+18572011220">Escribir un SMS al +1 (857) 201-1220 ↗</a>
-      <a class="np-action" href="mailto:nellypanessoa@gmail.com?subject=Consulta%20Notary%20Public%20Massachusetts">Consultar por correo ↗</a>
+      <section class="np-quote" id="quote-es" aria-labelledby="quote-es-heading">
+        <p class="kicker blue">Solicitud de cotización</p>
+        <h3 id="quote-es-heading">Solicita una cotización</h3>
+        <p>Completa estos datos para describir el servicio que necesitas. Al pulsar el botón, se preparará un SMS al +1 (857) 201-1220. Revisa el mensaje y envíalo desde tu teléfono.</p>
+        <form class="np-quote-form" data-lang="es">
+        <div class="np-quote-grid">
+        <label for="np-es-fullName"><span>Nombre y apellido</span><input id="np-es-fullName" name="fullName" type="text" required maxlength="90" autocomplete="name" placeholder="Ej. María López"></label>
+        <label for="np-es-phone"><span>Teléfono de contacto</span><input id="np-es-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel" placeholder="Ej. (508) 555-0123"></label>
+        <label for="np-es-email"><span>Correo electrónico (opcional)</span><input id="np-es-email" name="email" type="email" maxlength="110" autocomplete="email" placeholder="Ej. nombre@correo.com"></label>
+        <label for="np-es-city"><span>Ciudad en Massachusetts</span><input id="np-es-city" name="city" type="text" required maxlength="85" autocomplete="address-level2" placeholder="Ej. Middleborough"></label>
+        <label for="np-es-service"><span>Tipo de acto notarial</span><select id="np-es-service" name="service" required><option value="">Selecciona una opción</option><option value="unknown">No sé qué acto requiere mi documento</option><option value="ack">Reconocimiento de firma (acknowledgment)</option><option value="witness">Presenciar firma (signature witnessing)</option><option value="jurat">Jurat (firma bajo juramento)</option><option value="oath">Juramento o afirmación</option><option value="copycert">Certificación de copia, si está permitida</option><option value="other">Otro / consultar</option></select></label>
+        <label for="np-es-doc"><span>Nombre o tipo de documento</span><input id="np-es-doc" name="doc" type="text" required maxlength="100" placeholder="Ej. Poder especial (sin datos privados)"></label>
+        <label for="np-es-pages"><span>Cantidad de hojas</span><input id="np-es-pages" name="pages" type="number" required min="1" max="500" step="1" inputmode="numeric" placeholder="1"></label>
+        <label for="np-es-signers"><span>Número de personas que deben firmar</span><input id="np-es-signers" name="signers" type="number" required min="1" max="50" step="1" inputmode="numeric" placeholder="1"></label>
+        <label for="np-es-date"><span>Fecha preferida (opcional)</span><input id="np-es-date" name="date" type="date" ></label>
+        <label class="np-quote-wide" for="np-es-note"><span>Información adicional (opcional)</span><textarea id="np-es-note" name="note" rows="3" maxlength="180" placeholder="Ej. Tengo dos documentos distintos"></textarea></label>
+        </div>
+        <p class="np-quote-privacy">No incluyas números de identificación, datos bancarios ni información confidencial. No se cargan ni almacenan documentos en esta web. El envío se completa desde la aplicación de SMS o correo de tu dispositivo.</p>
+        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Preparar SMS para cotización</button><button type="button" class="np-quote-button np-copy-request">Copiar solicitud</button><button type="button" class="np-quote-button np-email-request">Enviar por correo</button></div>
+        <p class="np-quote-status" role="status" aria-live="polite"></p>
+        <p class="np-quote-hint">Si tu teléfono no completa el texto automáticamente, usa «Copiar solicitud» y pégalo en el SMS.</p>
+        </form>
+        </section>
     </section>
     <section class="np-content np-english" id="en" lang="en" aria-labelledby="en-heading">
       <div class="np-inner">
@@ -91,8 +135,29 @@
         <p>The appropriate notarial act depends on the document and applicable requirements. Please bring a complete document and acceptable identification. In-person notarial acts require the signer to appear personally. Appointment locations, availability, and applicable fees will be confirmed in advance. Services are limited to Massachusetts.</p>
         <p><strong>Know someone in Massachusetts?</strong> Feel free to share this page with family or friends who may need this service.</p>
         <p><strong>Legal notice:</strong> I am not an attorney and I have no authority to give advice on immigration or other legal matters.</p>
-        <a class="np-action primary" href="sms:+18572011220">Text +1 (857) 201-1220 ↗</a>
-        <a class="np-action" href="mailto:nellypanessoa@gmail.com?subject=Notary%20Public%20Inquiry%20Massachusetts">Email an inquiry ↗</a>
+        <section class="np-quote" id="quote-en" aria-labelledby="quote-en-heading">
+        <p class="kicker blue">Quote request</p>
+        <h3 id="quote-en-heading">Request a quote</h3>
+        <p>Fill out the details below to describe your request. The button prepares a text message to +1 (857) 201-1220. Review it and send it from your phone.</p>
+        <form class="np-quote-form" data-lang="en">
+        <div class="np-quote-grid">
+        <label for="np-en-fullName"><span>Full name</span><input id="np-en-fullName" name="fullName" type="text" required maxlength="90" autocomplete="name" placeholder="E.g. Maria Lopez"></label>
+        <label for="np-en-phone"><span>Contact phone</span><input id="np-en-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel" placeholder="E.g. (508) 555-0123"></label>
+        <label for="np-en-email"><span>Email address (optional)</span><input id="np-en-email" name="email" type="email" maxlength="110" autocomplete="email" placeholder="E.g. name@email.com"></label>
+        <label for="np-en-city"><span>City in Massachusetts</span><input id="np-en-city" name="city" type="text" required maxlength="85" autocomplete="address-level2" placeholder="E.g. Middleborough"></label>
+        <label for="np-en-service"><span>Type of notarial act</span><select id="np-en-service" name="service" required><option value="">Select an option</option><option value="unknown">I'm not sure which act I need</option><option value="ack">Acknowledgment</option><option value="witness">Signature witnessing</option><option value="jurat">Jurat</option><option value="oath">Oath or affirmation</option><option value="copycert">Copy certification, when permitted</option><option value="other">Other / please advise</option></select></label>
+        <label for="np-en-doc"><span>Document name or type</span><input id="np-en-doc" name="doc" type="text" required maxlength="100" placeholder="E.g. Power of attorney (no private details)"></label>
+        <label for="np-en-pages"><span>Number of pages</span><input id="np-en-pages" name="pages" type="number" required min="1" max="500" step="1" inputmode="numeric" placeholder="1"></label>
+        <label for="np-en-signers"><span>Number of people signing</span><input id="np-en-signers" name="signers" type="number" required min="1" max="50" step="1" inputmode="numeric" placeholder="1"></label>
+        <label for="np-en-date"><span>Preferred date (optional)</span><input id="np-en-date" name="date" type="date" ></label>
+        <label class="np-quote-wide" for="np-en-note"><span>Additional details (optional)</span><textarea id="np-en-note" name="note" rows="3" maxlength="180" placeholder="E.g. I have two separate documents"></textarea></label>
+        </div>
+        <p class="np-quote-privacy">Do not include identification numbers, financial data or confidential details. This website does not upload or store documents. You must send the request from your device's messaging or email app.</p>
+        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Prepare quote request by text</button><button type="button" class="np-quote-button np-copy-request">Copy request</button><button type="button" class="np-quote-button np-email-request">Send by email</button></div>
+        <p class="np-quote-status" role="status" aria-live="polite"></p>
+        <p class="np-quote-hint">If your phone does not fill in the text automatically, select “Copy request” and paste it into your message.</p>
+        </form>
+        </section>
       </div>
     </section>
   </main>
@@ -100,5 +165,84 @@
     <p>© Nelly Panesso · Notary Public — Massachusetts · <a href="index.html#servicios">Volver a servicios profesionales</a></p>
     <p>Normativa de referencia / Legal reference: <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222" target="_blank" rel="noopener noreferrer">Massachusetts General Laws, Chapter 222 ↗</a>.</p>
   </footer>
+<script>
+(function() {
+  'use strict';
+  const smsNumber = '+18572011220';
+  const emailAddress = 'nellypanessoa@gmail.com';
+  function getData(form) {
+    const d = new FormData(form);
+    const val = key => String(d.get(key) || '').trim();
+    const selected = form.querySelector('select[name="service"]');
+    return {
+      fullName: val('fullName'), phone: val('phone'), email: val('email'),
+      city: val('city'), service: selected?.selectedOptions[0]?.textContent?.trim() || '',
+      doc: val('doc'), pages: val('pages'), signers: val('signers'),
+      date: val('date'), note: val('note')
+    };
+  }
+  function draft(form) {
+    const d = getData(form);
+    const en = form.dataset.lang === 'en';
+    const out = en ?
+      ['NOTARY PUBLIC - QUOTE REQUEST', 'Name: ' + d.fullName, 'Phone: ' + d.phone, 'City (MA): ' + d.city,
+       'Notarial act: ' + d.service, 'Document: ' + d.doc, 'Pages: ' + d.pages, 'Signers: ' + d.signers] :
+      ['COTIZACION - NOTARY PUBLIC', 'Nombre: ' + d.fullName, 'Telefono: ' + d.phone, 'Ciudad (MA): ' + d.city,
+       'Acto notarial: ' + d.service, 'Documento: ' + d.doc, 'Hojas: ' + d.pages, 'Firmantes: ' + d.signers];
+    if(d.email) out.push((en ? 'Email: ' : 'Correo: ') + d.email);
+    if(d.date) out.push((en ? 'Preferred date: ' : 'Fecha preferida: ') + d.date);
+    if(d.note) out.push((en ? 'Details: ' : 'Detalles: ') + d.note);
+    return out.join('\n');
+  }
+  function setStatus(form, message) {
+    const status = form.querySelector('.np-quote-status');
+    if(status) status.textContent = message;
+  }
+  function valid(form) {
+    return form.reportValidity();
+  }
+  async function copyText(value) {
+    if(navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(value);
+      return true;
+    }
+    const tmp = document.createElement('textarea');
+    tmp.value = value;
+    tmp.style.position = 'fixed';
+    tmp.style.left = '-9999px';
+    document.body.appendChild(tmp);
+    tmp.select();
+    const ok = document.execCommand('copy');
+    tmp.remove();
+    if(!ok) throw new Error('copy unavailable');
+    return true;
+  }
+  document.querySelectorAll('.np-quote-form').forEach(form => {
+    const en = form.dataset.lang === 'en';
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if(!valid(form)) return;
+      const msg = draft(form);
+      setStatus(form, en ? 'Your messaging app will open. Check the text and tap Send. If it is blank, use Copy request.' : 'Se abrirá tu aplicación de mensajes. Revisa el texto y pulsa Enviar. Si aparece vacío, usa Copiar solicitud.');
+      window.location.href = 'sms:' + smsNumber + '?body=' + encodeURIComponent(msg);
+    });
+    form.querySelector('.np-copy-request')?.addEventListener('click', async () => {
+      if(!valid(form)) return;
+      try {
+        await copyText(draft(form));
+        setStatus(form, en ? 'Request copied. Paste it into a text message to +1 (857) 201-1220.' : 'Solicitud copiada. Pégala en un SMS al +1 (857) 201-1220.');
+      } catch(error) {
+        setStatus(form, en ? 'Copy was blocked by this browser. Use the SMS or email option.' : 'Este navegador no permitió copiar. Usa SMS o correo electrónico.');
+      }
+    });
+    form.querySelector('.np-email-request')?.addEventListener('click', () => {
+      if(!valid(form)) return;
+      const subject = en ? 'Notary Public - quote request' : 'Notary Public - solicitud de cotización';
+      setStatus(form, en ? 'Review the email and tap Send in your email app.' : 'Revisa el correo y pulsa Enviar en tu aplicación.');
+      window.location.href = 'mailto:' + emailAddress + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(draft(form));
+    });
+  });
+})();
+</script>
 </body>
 </html>
