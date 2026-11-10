@@ -190,7 +190,7 @@ footer p:last-child { text-align: right; }
 .platform-stories p:not(.kicker){color:#d7dbe2;max-width:40rem}
 .platform-stories a{display:inline-block;margin-top:1rem;font-weight:700;text-underline-offset:.3rem}
 .impact{background:#f4efe6}
-.impact-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.impact-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
 .impact-stats>div{padding:clamp(1rem,2.5vw,2rem);background:var(--paper)}
 .impact-stats strong{display:block;font:400 clamp(2.8rem,5vw,5rem)/1 var(--serif)}
 .impact-stats span{font-size:.8rem;display:block;margin-top:.75rem}
