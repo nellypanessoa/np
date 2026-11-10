@@ -20,7 +20,7 @@ const message = document.querySelector('#contact-message');
 const whatsapp = document.querySelector('#contact-whatsapp');
 const email = document.querySelector('#contact-email');
 const topicNote = document.querySelector('#contact-topic-note');
-const whatsappNumber = '18572011220';
+const whatsappNumber = '573017171462';
 const emailAddress = 'nellypanessoa@gmail.com';
 
 function contactDraft() {
