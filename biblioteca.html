@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Biblioteca audiovisual | Contenido Archivístico — Nelly Panesso</title>
-<meta name="description" content="Consulta el inventario audiovisual de Contenido Archivístico por título, invitado, temática, país y año de publicación.">
+<meta name="description" content="Explora entrevistas, conferencias y otros contenidos de Contenido Archivístico. Busca por título, invitado, temática, país y año de publicación.">
 <style>
 :root {color-scheme:light;--navy:#17293a;--ink:#203244;--muted:#657587;--teal:#1b6d76;--line:#dce5e8;--paper:#f5f7f7;--white:#fff}
 * {box-sizing:border-box}
@@ -30,8 +30,8 @@ a {color:var(--teal)}
 .eyebrow {font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b7d3d2;font-weight:800}
 h1 {font-size:clamp(29px,4.7vw,55px);line-height:1.08;letter-spacing:-.035em;margin:14px 0 16px;max-width:900px}
 .lead {font-size:17px;max-width:710px;color:#d4e0e7;margin:0}
-.numbers {display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
-.number {background:#ffffff12;border:1px solid #ffffff25;border-radius:12px;padding:13px 17px;min-width:150px}
+.numbers {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:27px}
+.number {background:#ffffff12;border:1px solid #ffffff25;border-radius:12px;padding:13px 17px;min-width:0}
 .number b {display:block;font-size:23px;line-height:1.2}
 .number span {display:block;font-size:11px;color:#cad9e0;margin-top:2px}
 .main {padding:30px 0 70px}
@@ -73,17 +73,17 @@ select:disabled {color:#95a0a6;background:#f3f4f3}
 .bottom p {margin:5px 0 0;color:var(--muted);font-size:13px}
 .footer {background:var(--navy);color:#dbe6e9;padding:24px 0;font-size:12px}
 .footer a {color:#dbe6e9}
-@media(max-width:860px) {.workspace {grid-template-columns:1fr}.filters{padding:17px}.filtergrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}}
+@media(max-width:860px) {.numbers{grid-template-columns:repeat(2,minmax(0,1fr))}.workspace {grid-template-columns:1fr}.filters{padding:17px}.filtergrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}}
 @media(max-width:600px) {.container{width:min(100% - 28px,1220px)}.hero{padding:35px 0 38px}.numbers{gap:8px}.number{flex:1;min-width:110px}.cards{grid-template-columns:1fr}.filtergrid{grid-template-columns:1fr}.navlink{font-size:11px}}
 </style>
 </head>
-<body><div style="background:#f0f3f4;padding:10px 18px;text-align:center;font:600 13px system-ui,sans-serif"><a href="index.html" style="color:#164f87;text-decoration:underline">← Volver a Nelly Panesso</a> &nbsp; · &nbsp; Inventario actualizado: se muestran los títulos originales y la clasificación temática del Excel más reciente.</div>
+<body><div style="background:#f0f3f4;padding:10px 18px;text-align:center;font:600 13px system-ui,sans-serif"><a href="index.html" style="color:#164f87;text-decoration:underline">← Volver a Nelly Panesso</a></div>
 <header class="top">
  <div class="container">
   <nav class="nav"><a class="brand" href="https://www.youtube.com/@Contenidoarchivistico" target="_blank" rel="noopener noreferrer"><span class="brandmark">NP.</span><span>Nelly Panesso</span></a><div class="social-nav"><a class="navlink" href="https://www.youtube.com/@Contenidoarchivistico" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a class="navlink" href="https://www.instagram.com/contenidoarchivistico/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a class="navlink" href="https://open.spotify.com/show/4ZFmK2MI6AqsVGSVB5mVos" target="_blank" rel="noopener noreferrer">Spotify ↗</a></div></nav>
-  <section class="hero"><span class="eyebrow">Contenido Archivístico · Versión inicial</span><h1>Biblioteca audiovisual de Contenido Archivístico</h1><p class="lead">Explora conferencias, entrevistas y experiencias profesionales a través de los títulos e invitados registrados en nuestro inventario.</p>
+  <section class="hero"><span class="eyebrow">Contenido Archivístico · Entrevistas y conferencias</span><h1>Biblioteca audiovisual de Contenido Archivístico</h1><p class="lead">Descubre entrevistas, conferencias y experiencias de profesionales de la archivística y la gestión documental. Encuentra contenidos por título, invitado, temática, país o año.</p>
   <div class="hero-social"><a href="https://www.youtube.com/@Contenidoarchivistico" target="_blank" rel="noopener noreferrer">▶ Explorar YouTube ↗</a><a class="instagram" href="https://www.instagram.com/contenidoarchivistico/" target="_blank" rel="noopener noreferrer">◎ Seguir en Instagram ↗</a><a class="instagram" href="https://open.spotify.com/show/4ZFmK2MI6AqsVGSVB5mVos" target="_blank" rel="noopener noreferrer">♫ Escuchar en Spotify ↗</a></div>
-  <div class="numbers"><div class="number"><b id="total">145</b><span>Videos inventariados</span></div><div class="number"><b>2024–2026</b><span>Periodo registrado</span></div><div class="number"><b id="tagged">145</b><span>Videos con temática asignada</span></div></div>
+  <div class="numbers"><div class="number"><b id="total">145</b><span>Entrevistas, conferencias y otros videos</span></div><div class="number"><b id="country-total">22</b><span>Países representados</span></div><div class="number"><b id="theme-total">8</b><span>Temáticas</span></div><div class="number"><b id="guest-total">137</b><span>Invitados y expositores</span></div></div>
   </section>
  </div>
 </header>
@@ -93,11 +93,11 @@ select:disabled {color:#95a0a6;background:#f3f4f3}
    <h2>Explorar catálogo</h2>
    <div class="filtergrid">
     <div><label class="label" for="query">Buscar por título</label><input id="query" type="search" placeholder="Ej. valoración documental" autocomplete="off"></div>
-    <div><label class="label" for="guest">Invitado o conferencista</label><select id="guest"><option value="">Todos los invitados</option></select><p class="hint">Nombres organizados alfabéticamente según el inventario.</p></div>
+    <div><label class="label" for="guest">Invitado o conferencista</label><select id="guest"><option value="">Todos los invitados</option></select><p class="hint">Nombres organizados alfabéticamente.</p></div>
     <div><label class="label" for="theme">Temática</label><select id="theme"><option value="">Todas las temáticas</option></select></div>
     <div><label class="label" for="year">Año de publicación</label><select id="year"><option value="">Todos los años</option></select></div>
     <div><label class="label" for="country">País registrado</label><select id="country"><option value="">Todos los países</option></select></div>
-    <div><label class="label" for="type">Tipo de contenido</label><select id="type" disabled><option>Por incorporar al catálogo</option></select><p class="hint">El Excel aún no distingue sistemáticamente entrevista, conferencia y otros formatos.</p></div>
+    
    </div>
    <button type="button" id="reset" class="reset">Limpiar filtros</button>
    
@@ -106,7 +106,7 @@ select:disabled {color:#95a0a6;background:#f3f4f3}
    <div class="content-top"><div><h2>Resultados</h2><span class="count" id="count">Cargando catálogo…</span></div><label class="sort" for="sort">Ordenar <select id="sort"><option value="newest">Más recientes</option><option value="oldest">Más antiguos</option><option value="title">Título A–Z</option></select></label></div>
    <div class="cards" id="results"></div>
    <button id="loadmore" class="loadmore" type="button" hidden>Mostrar más videos</button>
-   <div class="bottom"><b>Un catálogo en construcción</b><p>Esta biblioteca es una primera versión basada en el inventario disponible. La clasificación temática y por tipo se irá completando progresivamente. Los videos están alojados en YouTube.</p></div>
+   <div class="bottom"><b>Sobre esta biblioteca</b><p>Explora las entrevistas, conferencias y otros contenidos de Contenido Archivístico. Cada publicación enlaza al video en YouTube y, cuando está disponible, a su versión de audio en Spotify.</p></div>
    <div class="social-promo"><div><b>¿Prefieres escuchar las entrevistas?</b><p>Contenido Archivístico también está en Spotify. Encuentra los episodios disponibles en audio, para escuchar las conversaciones de YouTube a tu ritmo.</p></div><a href="https://open.spotify.com/show/4ZFmK2MI6AqsVGSVB5mVos" target="_blank" rel="noopener noreferrer">Escuchar en Spotify ↗</a></div>
   </section>
  </div>
@@ -130,7 +130,9 @@ const countries=[...new Set(VIDEOS.flatMap(v=>v.paises))].sort((a,b)=>a.localeCo
 countries.forEach(v=>option($("country"),v,v));
 option($("country"),"Sin especificar","__sin__");
 $("total").textContent=VIDEOS.length;
-$("tagged").textContent=VIDEOS.filter(v=>v.temas.length).length;
+$("country-total").textContent=countries.length;
+$("theme-total").textContent=topics.length;
+$("guest-total").textContent=guests.length;
 function node(tag,cls,txt){const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n}
 function link(txt,url,cls){const a=node("a",cls,txt);a.href=url;a.target="_blank";a.rel="noopener noreferrer";return a}
 function ficha(v){
@@ -181,7 +183,7 @@ function render(){
  const items=candidates(),visible=items.slice(0,state.shown);
  $("count").textContent=items.length+" de "+VIDEOS.length+" videos";
  const target=$("results");target.replaceChildren();
- if(!items.length){const empty=node("div","empty");empty.style.gridColumn="1/-1";empty.appendChild(node("b","","No hay resultados para esta combinación de filtros."));empty.appendChild(node("p","","Prueba con otro título, invitado o temática."));target.appendChild(empty)}
+ if(!items.length){const empty=node("div","empty");empty.style.gridColumn="1/-1";empty.appendChild(node("b","","No hay resultados para esta combinación de filtros."));empty.appendChild(node("p","","Intenta buscar otro título, invitado o temática."));target.appendChild(empty)}
  const batch=document.createDocumentFragment();visible.forEach(v=>batch.appendChild(ficha(v)));target.appendChild(batch);
  $("loadmore").hidden=state.shown>=items.length;
 }
