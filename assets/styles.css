@@ -207,6 +207,10 @@ footer p:last-child { text-align: right; }
 .library-feature h3{margin:.5rem 0}
 .library-feature .testimonial-link{white-space:nowrap}
 .special-services{background:#fffaf2}
+.service-training{border-top:1px solid var(--line);padding-top:clamp(2rem,4vw,3rem);max-width:72rem}
+.service-training h3{font:400 clamp(2rem,3.2vw,3.2rem)/1.08 var(--serif);letter-spacing:-.035em;margin:.7rem 0 1.4rem}
+.service-training p:not(.kicker){font-size:1.05rem;line-height:1.7;max-width:58rem}
+.service-training .text-link{margin-top:.7rem}
 .service-cards article{background:#fffaf2;display:flex;flex-direction:column}
 .service-cards .text-link{margin-top:auto;align-self:flex-start}
 .service-cards article p{margin-bottom:2rem}
