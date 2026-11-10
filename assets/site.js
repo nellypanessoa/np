@@ -45,9 +45,7 @@ function updateContactLinks() {
   if (email) email.href = 'mailto:' + emailAddress + '?subject=' +
     encodeURIComponent('Consulta desde la web: ' + (interest || 'Tema por seleccionar')) +
     '&body=' + encodeURIComponent(draft);
-  if (topicNote) topicNote.textContent = interest
-    ? 'Tema seleccionado: ' + interest + '. Se incluirá en tu mensaje.'
-    : 'Selecciona primero el tema de interés. Lo incluiremos automáticamente en tu mensaje.';
+  if (topicNote) topicNote.textContent = '';
 }
 function requireTopic(event) {
   if (topic?.value) return;
