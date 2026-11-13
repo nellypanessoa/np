@@ -262,3 +262,8 @@ footer p:last-child { text-align: right; }
   .contact-simple{margin-top:1.9rem}
   .contact-direct{min-height:3.5rem}
 }
+
+/* Promoción editorial discreta del estudio de diseño web en el pie de página */
+footer .eranios-promo{grid-column:1/-1;justify-self:stretch;text-align:left;border-top:1px solid var(--line);padding-top:1.2rem;margin:0;font-size:.87rem;font-weight:400;letter-spacing:normal;text-transform:none;line-height:1.65}
+footer .eranios-promo a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:980px){footer .eranios-promo{display:block;grid-column:1/-1}}
