@@ -62,6 +62,8 @@
     .np-quote-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.5rem 0 0}
     .np-quote-button{min-height:3rem;padding:.75rem 1rem;border:1px solid var(--ink);border-radius:4px;background:transparent;color:var(--ink);font:600 .95rem var(--sans);cursor:pointer}
     .np-quote-button.primary{background:var(--ink);color:var(--white)}
+    .np-quote-button.np-whatsapp-request{background:#187f52;border-color:#187f52;color:#fff}
+    .np-quote-button:disabled{background:#e8e8e4;border-color:#c3c9ca;color:#65717a;cursor:not-allowed;opacity:1}
     .np-quote-button:hover,.np-quote-button:focus-visible,.np-hero-action:focus-visible{outline:2px solid var(--red);outline-offset:3px}
     .np-quote-status{font-weight:600;color:var(--blue);min-height:1.4rem}
     @media(max-width:650px){.np-quote-grid{grid-template-columns:1fr}.np-quote-actions{flex-direction:column}.np-quote-button{width:100%}}
@@ -91,43 +93,39 @@
       <p class="np-kicker" data-lang-panel="es">Servicio 05 · Massachusetts, Estados Unidos</p>
       <p class="np-kicker" data-lang-panel="en">Service 05 · Massachusetts, United States</p>
       <h1>Notary Public <em>Massachusetts.</em></h1>
-      <p class="np-lead" data-lang-panel="es">Soy Notary Public comisionada en Massachusetts, Estados Unidos. Brindo información sobre actos notariales presenciales y recibo solicitudes de cotización en español e inglés. Si tienes familiares o amigos en Massachusetts, puedes compartirles esta página.</p>
-      <p class="np-lead" data-lang-panel="en">I am a commissioned Notary Public in Massachusetts, United States. I provide information about in-person notarial acts and accept quote requests in English and Spanish. Feel free to share this page with family and friends in Massachusetts.</p>
-      <p class="np-status" data-lang-panel="es"><strong>Solicitudes de cotización abiertas.</strong> Las citas presenciales se coordinan individualmente, según disponibilidad, ubicación y requisitos del acto notarial. Enviar una solicitud no confirma una cita.</p>
-      <p class="np-status" data-lang-panel="en"><strong>Quote requests are welcome.</strong> In-person appointments are arranged individually, subject to availability, location, and notarial requirements. Submitting a request does not confirm an appointment.</p>
+      <p class="np-lead" data-lang-panel="es">Notary Public comisionada en Massachusetts. Atención presencial en español e inglés para actos notariales permitidos por la ley estatal.</p>
+      <p class="np-lead" data-lang-panel="en">Commissioned Notary Public in Massachusetts. In-person notarial services with assistance in English and Spanish.</p>
+      <p class="np-status" data-lang-panel="es">Solicita una cotización y confirma los detalles de tu cita según disponibilidad. La solicitud no constituye una reserva.</p>
+      <p class="np-status" data-lang-panel="en">Request a quote to confirm appointment details and availability. Submitting a request does not book an appointment.</p>
       <p class="np-hero-actions" data-lang-panel="es"><a class="np-hero-action" href="#quote-es">Solicitar cotización ↗</a></p>
       <p class="np-hero-actions" data-lang-panel="en"><a class="np-hero-action" href="#quote-en">Request a quote ↗</a></p>
     </section>
     <aside class="np-warning" data-lang-panel="es" aria-label="Información legal importante" lang="es">
       <strong>Información legal importante</strong>
-      <p><strong>No soy abogada y no tengo autoridad para dar asesoría sobre inmigración ni otros asuntos legales.</strong> La función de Notary Public en Estados Unidos es distinta de la de un profesional del derecho y no incluye asesoría jurídica ni migratoria.</p>
+      <p><strong>No soy abogada y no tengo autoridad para dar asesoría sobre inmigración ni otros asuntos legales.</strong> Un Notary Public no equivale a un profesional del derecho.</p>
       <p class="np-legal-source">Fundamento normativo: Massachusetts General Laws, Chapter 222, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section16" target="_blank" rel="noopener noreferrer">Section 16(i)</a>, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section17" target="_blank" rel="noopener noreferrer">Section 17</a> y <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section21" target="_blank" rel="noopener noreferrer">Section 21</a>.</p>
     </aside>
     <aside class="np-warning" data-lang-panel="en" aria-label="Important legal notice" lang="en">
       <strong>Important legal notice</strong>
-      <p><strong>I am not an attorney and I have no authority to give advice on immigration or other legal matters.</strong> A Massachusetts Notary Public does not provide legal or immigration advice.</p>
+      <p><strong>I am not an attorney and I have no authority to give advice on immigration or other legal matters.</strong></p>
       <p class="np-legal-source">Legal references: Massachusetts General Laws, Chapter 222, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section16" target="_blank" rel="noopener noreferrer">Section 16(i)</a>, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section17" target="_blank" rel="noopener noreferrer">Section 17</a> and <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section21" target="_blank" rel="noopener noreferrer">Section 21</a>.</p>
     </aside>
     <section class="np-content" id="es" lang="es" data-lang-panel="es" aria-labelledby="es-heading">
-      <p class="kicker blue">Atención en español · Solo Massachusetts</p>
-      <h2 id="es-heading">Servicios de Notary Public en Massachusetts</h2>
-      <p>Soy Notary Public comisionada en el <strong>Commonwealth of Massachusetts</strong>. Atiendo consultas y solicitudes de cotización en español e inglés para actos notariales presenciales realizados exclusivamente dentro de Massachusetts. La fecha y el lugar de cada cita se confirman previamente.</p>
-      <h3>¿Qué actuaciones puede realizar un Notary Public?</h3>
+      <p class="kicker blue">Servicios · Massachusetts</p>
+      <h2 id="es-heading">Actos notariales</h2>
       <ul>
         <li>Reconocimientos de firmas (<em>acknowledgments</em>).</li>
         <li>Presenciar la firma de documentos (<em>signature witnessings</em>).</li>
         <li>Administrar juramentos y afirmaciones, y realizar <em>jurats</em>.</li>
         <li>Certificar copias de documentos cuando corresponda legalmente (<em>copy certifications</em>).</li>
       </ul>
-      <p>La actuación adecuada dependerá del documento y de los requisitos aplicables; la persona solicitante debe determinar el acto requerido o consultar con quien recibirá el documento.</p>
-      <h3>Antes de solicitar el servicio</h3>
-      <p>Ten a mano el documento completo, una identificación vigente aceptable y la información sobre el acto notarial requerido. La persona firmante debe comparecer personalmente y acreditar su identidad. No se certifican firmas sobre documentos en blanco o incompletos. Antes de la cita se confirmarán la ubicación, la disponibilidad y la cotización aplicable.</p>
-      <p>La cotización considera el acto solicitado y las condiciones de atención. <strong>No es necesario compartir ni adjuntar documentos personales al pedir una cotización.</strong></p>
-      <p><strong>¿Conoces a alguien en Massachusetts?</strong> Puedes compartirle esta página para que consulte los servicios y solicite información.</p>
+      <p>Si no sabes qué acto requiere tu documento, puedes indicarlo en la solicitud de cotización.</p>
+      <h3>Antes de la cita</h3>
+      <p>La persona firmante debe presentarse con una identificación vigente aceptable y el documento completo, sin espacios en blanco. Confirmaremos ubicación, disponibilidad y cotización antes de acordar la cita.</p>
       <section class="np-quote" id="quote-es" aria-labelledby="quote-es-heading">
-        <p class="kicker blue">Solicitud de cotización</p>
-        <h3 id="quote-es-heading">Solicita una cotización</h3>
-        <p>Completa los datos para solicitar una cotización. Al pulsar «Enviar solicitud por SMS», se abrirá la aplicación de mensajes con el destinatario y el texto preparados. Revísalo y pulsa Enviar.</p>
+        <p class="kicker blue">Contacto</p>
+        <h3 id="quote-es-heading">Solicita tu cotización</h3>
+        <p>Completa el formulario y elige SMS o WhatsApp. Se preparará el mensaje para que lo revises y envíes.</p>
         <form class="np-quote-form" data-lang="es">
         <div class="np-quote-grid">
         <label for="np-es-fullName"><span>Nombre y apellido</span><input id="np-es-fullName" name="fullName" type="text" required maxlength="90" autocomplete="name" placeholder="Ej. María López"></label>
@@ -141,31 +139,29 @@
         <label for="np-es-date"><span>Fecha preferida (opcional)</span><input id="np-es-date" name="date" type="date" ></label>
         <label class="np-quote-wide" for="np-es-note"><span>Información adicional (opcional)</span><textarea id="np-es-note" name="note" rows="3" maxlength="180" placeholder="Ej. Tengo dos documentos distintos"></textarea></label>
         </div>
-        <p class="np-quote-privacy">No incluyas números de identificación, datos bancarios ni información confidencial. Este sitio no almacena tus respuestas ni recibe documentos; el envío se realiza únicamente desde la aplicación de mensajes de tu dispositivo.</p>
-        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Enviar solicitud por SMS</button><button type="button" class="np-quote-button np-copy-request">Copiar solicitud</button></div>
+        <p class="np-quote-privacy">No incluyas datos sensibles ni adjuntes documentos. Esta página no almacena las respuestas; tú envías la solicitud desde SMS o WhatsApp.</p>
+        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Enviar por SMS</button><button type="button" class="np-quote-button np-whatsapp-request">Enviar por WhatsApp</button><button type="button" class="np-quote-button" disabled title="Pendiente de habilitar correo notarial">Correo electrónico (próximamente)</button><button type="button" class="np-quote-button np-copy-request">Copiar solicitud</button></div>
         <p class="np-quote-status" role="status" aria-live="polite"></p>
-        <p class="np-quote-hint">Si tu teléfono no completa el mensaje automáticamente, utiliza «Copiar solicitud» y pégalo en la aplicación de mensajes.</p>
+        <p class="np-quote-hint">Si el texto no aparece automáticamente, utiliza «Copiar solicitud» y pégalo en la aplicación que prefieras.</p>
         </form>
         </section>
     </section>
     <section class="np-content np-english" id="en" lang="en" data-lang-panel="en" aria-labelledby="en-heading">
       <div class="np-inner">
-        <p class="kicker blue">English-speaking assistance · Massachusetts only</p>
-        <h2 id="en-heading">Notary Public Services in Massachusetts</h2>
-        <p>I am a commissioned Notary Public in the Commonwealth of Massachusetts. I welcome inquiries and quote requests in English and Spanish for in-person notarial acts performed within Massachusetts. Appointment dates and locations are confirmed individually according to availability and the requirements of each act.</p>
-        <h3>Common notarial acts</h3>
+        <p class="kicker blue">Services · Massachusetts</p>
+        <h2 id="en-heading">Notarial acts</h2>
         <ul>
           <li>Acknowledgments and signature witnessing.</li>
           <li>Oaths, affirmations, and jurats.</li>
           <li>Copy certifications when permitted under applicable law.</li>
         </ul>
-        <p>The appropriate notarial act depends on the document and applicable requirements. Please bring a complete document and acceptable current identification. The signer must appear in person and provide satisfactory evidence of identity. Blank or incomplete documents cannot be notarized. The location, availability, and quote will be confirmed before an appointment is arranged.</p>
-        <p>Quotes depend on the act requested and service arrangements. <strong>Please do not send sensitive personal information or copies of documents when requesting a quote.</strong> Submitting a request does not confirm an appointment.</p>
-        <p><strong>Know someone in Massachusetts?</strong> Feel free to share this page with family or friends who may need this service.</p>
+        <p>Not sure which act your document requires? Select that option when requesting your quote.</p>
+        <h3>Before your appointment</h3>
+        <p>The signer must appear in person with acceptable current identification and a complete document without blank spaces. We will confirm the location, availability, and quote before arranging an appointment.</p>
         <section class="np-quote" id="quote-en" aria-labelledby="quote-en-heading">
-        <p class="kicker blue">Quote request</p>
+        <p class="kicker blue">Contact</p>
         <h3 id="quote-en-heading">Request a quote</h3>
-        <p>Complete this form to request a quote. Select “Send request by text” to open your messaging app with the recipient and message prepared. Review it and tap Send.</p>
+        <p>Complete the form and choose SMS or WhatsApp. Review the prepared message before sending it.</p>
         <form class="np-quote-form" data-lang="en">
         <div class="np-quote-grid">
         <label for="np-en-fullName"><span>Full name</span><input id="np-en-fullName" name="fullName" type="text" required maxlength="90" autocomplete="name" placeholder="E.g. Maria Lopez"></label>
@@ -179,10 +175,10 @@
         <label for="np-en-date"><span>Preferred date (optional)</span><input id="np-en-date" name="date" type="date" ></label>
         <label class="np-quote-wide" for="np-en-note"><span>Additional details (optional)</span><textarea id="np-en-note" name="note" rows="3" maxlength="180" placeholder="E.g. I have two separate documents"></textarea></label>
         </div>
-        <p class="np-quote-privacy">Do not include identification numbers, financial data or confidential details. This site does not store your answers or receive documents; the request is sent only from your device’s messaging app.</p>
-        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Send request by text</button><button type="button" class="np-quote-button np-copy-request">Copy request</button></div>
+        <p class="np-quote-privacy">Do not include sensitive data or attach documents. This page does not store your answers; you send the request using SMS or WhatsApp.</p>
+        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Send by SMS</button><button type="button" class="np-quote-button np-whatsapp-request">Send by WhatsApp</button><button type="button" class="np-quote-button" disabled title="Dedicated notary email coming soon">Email (coming soon)</button><button type="button" class="np-quote-button np-copy-request">Copy request</button></div>
         <p class="np-quote-status" role="status" aria-live="polite"></p>
-        <p class="np-quote-hint">If your phone does not fill in the message automatically, select “Copy request” and paste it into your messaging app.</p>
+        <p class="np-quote-hint">If the message text does not appear, select “Copy request” and paste it into your preferred messaging app.</p>
         </form>
         </section>
       </div>
@@ -201,6 +197,7 @@
 (function() {
   'use strict';
   const smsNumber = '+18572011220';
+  const whatsappNumber = '18572011220';
   function chooseLanguage(lang, updateHash) {
     if(lang !== 'es' && lang !== 'en') return;
     document.documentElement.lang = lang;
@@ -293,8 +290,14 @@
       event.preventDefault();
       if(!valid(form)) return;
       const msg = draft(form);
-      setStatus(form, en ? 'Your messaging app will open. Check the text and tap Send. If it is blank, use Copy request.' : 'Se abrirá tu aplicación de mensajes. Revisa el texto y pulsa Enviar. Si aparece vacío, usa Copiar solicitud.');
+      setStatus(form, en ? 'Your SMS app will open with the prepared request. Check it and tap Send.' : 'Se abrirá tu aplicación de SMS con la solicitud preparada. Revísala y pulsa Enviar.');
       window.location.href = 'sms:' + smsNumber + '?body=' + encodeURIComponent(msg);
+    });
+    form.querySelector('.np-whatsapp-request')?.addEventListener('click', () => {
+      if(!valid(form)) return;
+      setStatus(form, en ? 'WhatsApp will open with your request. Review the message and tap Send.' : 'Se abrirá WhatsApp con tu solicitud. Revisa el mensaje y pulsa Enviar.');
+      const url = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(draft(form));
+      window.open(url, '_blank', 'noopener,noreferrer');
     });
     form.querySelector('.np-copy-request')?.addEventListener('click', async () => {
       if(!valid(form)) return;
