@@ -11,6 +11,15 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
   <style>
+
+    .np-header{gap:clamp(.65rem,2vw,1.5rem)}
+    .np-header nav{margin-left:auto}
+    .np-lang-switch{display:flex;gap:.35rem;align-items:center;border:1px solid var(--line);border-radius:999px;padding:.24rem;background:var(--white)}
+    .np-lang-option{display:inline-flex;align-items:center;gap:.4rem;border:0;border-radius:999px;padding:.5rem .85rem;background:transparent;color:var(--ink);font:600 .8rem var(--sans);white-space:nowrap;cursor:pointer}
+    .np-lang-option[aria-pressed="true"]{background:var(--ink);color:var(--white)}
+    .np-lang-option:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+    [data-lang-panel][hidden]{display:none!important}
+    @media(max-width:540px){.np-header{flex-wrap:wrap;padding-top:.5rem;padding-bottom:.5rem;gap:.5rem}.np-header nav{order:3;width:100%;display:flex;justify-content:center;margin:0}.np-header .np-lang-switch{margin-left:auto}.np-lang-option{padding:.43rem .63rem;font-size:.76rem}.np-quote{scroll-margin-top:8rem}}
     .np-hero{padding:clamp(4rem,8vw,7rem) clamp(1.25rem,6vw,6rem);background:var(--ink);color:var(--white)}
     .np-hero h1{font:400 clamp(3.5rem,7.8vw,7rem)/.95 var(--serif);letter-spacing:-.055em;margin:1.1rem 0 1.5rem;max-width:65rem}
     .np-hero h1 em{font-weight:400;color:var(--aqua)}
@@ -63,29 +72,40 @@
   </style>
 </head>
 <body>
-  <a class="skip" href="#contenido">Ir al contenido</a>
-  <header class="site-header">
+  <a class="skip" href="#contenido"><span data-lang-panel="es">Ir al contenido</span><span data-lang-panel="en">Skip to content</span></a>
+  <header class="site-header np-header">
     <a class="brand" href="index.html" aria-label="Nelly Panesso, inicio">NP<span>.</span></a>
     <nav aria-label="Navegación">
-      <a href="index.html#servicios">Servicios</a>
-      <a href="#es">Español</a>
-      <a href="#en">English</a>
+      <a href="index.html#servicios"><span data-lang-panel="es">Volver a servicios</span><span data-lang-panel="en">Back to services</span></a>
     </nav>
+    <div class="np-lang-switch" role="group" aria-label="Idioma / Language">
+      <button type="button" class="np-lang-option" data-select-lang="es" aria-pressed="true"><span aria-hidden="true">🇪🇸</span> Español</button>
+      <button type="button" class="np-lang-option" data-select-lang="en" aria-pressed="false"><span aria-hidden="true">🇬🇧</span> English</button>
+    </div>
   </header>
   <main id="contenido">
     <section class="np-hero">
-      <p class="np-kicker">Servicio 05 · Massachusetts, Estados Unidos</p>
+      <p class="np-kicker" data-lang-panel="es">Servicio 05 · Massachusetts, Estados Unidos</p>
+      <p class="np-kicker" data-lang-panel="en">Service 05 · Massachusetts, United States</p>
       <h1>Notary Public <em>Massachusetts.</em></h1>
-      <p class="np-lead">Soy Notary Public comisionada en Massachusetts, Estados Unidos. Brindo información sobre actos notariales presenciales y recibo solicitudes de cotización en español e inglés. Si tienes familiares o amigos en Massachusetts, puedes compartirles esta página.</p>
-      <p class="np-status"><strong>Solicitudes de cotización abiertas.</strong> Las citas presenciales se coordinan individualmente, según disponibilidad, ubicación y requisitos del acto notarial. Enviar una solicitud no confirma una cita.</p>
-      <p class="np-hero-actions"><a class="np-hero-action" href="#quote-es">Solicitar cotización ↗</a><a class="np-hero-action secondary" href="#quote-en">Request a quote ↗</a></p>
+      <p class="np-lead" data-lang-panel="es">Soy Notary Public comisionada en Massachusetts, Estados Unidos. Brindo información sobre actos notariales presenciales y recibo solicitudes de cotización en español e inglés. Si tienes familiares o amigos en Massachusetts, puedes compartirles esta página.</p>
+      <p class="np-lead" data-lang-panel="en">I am a commissioned Notary Public in Massachusetts, United States. I provide information about in-person notarial acts and accept quote requests in English and Spanish. Feel free to share this page with family and friends in Massachusetts.</p>
+      <p class="np-status" data-lang-panel="es"><strong>Solicitudes de cotización abiertas.</strong> Las citas presenciales se coordinan individualmente, según disponibilidad, ubicación y requisitos del acto notarial. Enviar una solicitud no confirma una cita.</p>
+      <p class="np-status" data-lang-panel="en"><strong>Quote requests are welcome.</strong> In-person appointments are arranged individually, subject to availability, location, and notarial requirements. Submitting a request does not confirm an appointment.</p>
+      <p class="np-hero-actions" data-lang-panel="es"><a class="np-hero-action" href="#quote-es">Solicitar cotización ↗</a></p>
+      <p class="np-hero-actions" data-lang-panel="en"><a class="np-hero-action" href="#quote-en">Request a quote ↗</a></p>
     </section>
-    <aside class="np-warning" aria-label="Información legal importante" lang="es">
+    <aside class="np-warning" data-lang-panel="es" aria-label="Información legal importante" lang="es">
       <strong>Información legal importante</strong>
       <p><strong>No soy abogada y no tengo autoridad para dar asesoría sobre inmigración ni otros asuntos legales.</strong> La función de Notary Public en Estados Unidos es distinta de la de un profesional del derecho y no incluye asesoría jurídica ni migratoria.</p>
       <p class="np-legal-source">Fundamento normativo: Massachusetts General Laws, Chapter 222, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section16" target="_blank" rel="noopener noreferrer">Section 16(i)</a>, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section17" target="_blank" rel="noopener noreferrer">Section 17</a> y <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section21" target="_blank" rel="noopener noreferrer">Section 21</a>.</p>
     </aside>
-    <section class="np-content" id="es" lang="es" aria-labelledby="es-heading">
+    <aside class="np-warning" data-lang-panel="en" aria-label="Important legal notice" lang="en">
+      <strong>Important legal notice</strong>
+      <p><strong>I am not an attorney and I have no authority to give advice on immigration or other legal matters.</strong> A Massachusetts Notary Public does not provide legal or immigration advice.</p>
+      <p class="np-legal-source">Legal references: Massachusetts General Laws, Chapter 222, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section16" target="_blank" rel="noopener noreferrer">Section 16(i)</a>, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section17" target="_blank" rel="noopener noreferrer">Section 17</a> and <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section21" target="_blank" rel="noopener noreferrer">Section 21</a>.</p>
+    </aside>
+    <section class="np-content" id="es" lang="es" data-lang-panel="es" aria-labelledby="es-heading">
       <p class="kicker blue">Atención en español · Solo Massachusetts</p>
       <h2 id="es-heading">Servicios de Notary Public en Massachusetts</h2>
       <p>Soy Notary Public comisionada en el <strong>Commonwealth of Massachusetts</strong>. Atiendo consultas y solicitudes de cotización en español e inglés para actos notariales presenciales realizados exclusivamente dentro de Massachusetts. La fecha y el lugar de cada cita se confirman previamente.</p>
@@ -125,7 +145,7 @@
         </form>
         </section>
     </section>
-    <section class="np-content np-english" id="en" lang="en" aria-labelledby="en-heading">
+    <section class="np-content np-english" id="en" lang="en" data-lang-panel="en" aria-labelledby="en-heading">
       <div class="np-inner">
         <p class="kicker blue">English-speaking assistance · Massachusetts only</p>
         <h2 id="en-heading">Notary Public Services in Massachusetts</h2>
@@ -139,7 +159,6 @@
         <p>The appropriate notarial act depends on the document and applicable requirements. Please bring a complete document and acceptable current identification. The signer must appear in person and provide satisfactory evidence of identity. Blank or incomplete documents cannot be notarized. The location, availability, and quote will be confirmed before an appointment is arranged.</p>
         <p>Quotes depend on the act requested and service arrangements. <strong>Please do not send sensitive personal information or copies of documents when requesting a quote.</strong> Submitting a request does not confirm an appointment.</p>
         <p><strong>Know someone in Massachusetts?</strong> Feel free to share this page with family or friends who may need this service.</p>
-        <p><strong>Legal notice:</strong> I am not an attorney and I have no authority to give advice on immigration or other legal matters. <span class="np-legal-source">Legal basis: Massachusetts General Laws, Chapter 222, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section16" target="_blank" rel="noopener noreferrer">Section 16(i)</a>, <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section17" target="_blank" rel="noopener noreferrer">Section 17</a> and <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section21" target="_blank" rel="noopener noreferrer">Section 21</a>.</span></p>
         <section class="np-quote" id="quote-en" aria-labelledby="quote-en-heading">
         <p class="kicker blue">Quote request</p>
         <h3 id="quote-en-heading">Request a quote</h3>
@@ -167,7 +186,7 @@
     </section>
   </main>
   <footer class="np-footer">
-    <p>© Nelly Panesso · Notary Public — Massachusetts · <a href="index.html#servicios">Volver a servicios profesionales</a></p>
+    <p>© Nelly Panesso · Notary Public — Massachusetts · <a href="index.html#servicios"><span data-lang-panel="es">Volver a servicios profesionales</span><span data-lang-panel="en">Back to professional services</span></a></p>
     <p>Normativa de referencia / Legal reference: <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222" target="_blank" rel="noopener noreferrer">Massachusetts General Laws, Chapter 222 ↗</a>.</p>
   </footer>
 <script src="assets/ma-municipalities.js"></script>
@@ -175,6 +194,32 @@
 (function() {
   'use strict';
   const smsNumber = '+18572011220';
+  function chooseLanguage(lang, updateHash) {
+    if(lang !== 'es' && lang !== 'en') return;
+    document.documentElement.lang = lang;
+    document.title = lang === 'en' ? 'Notary Public in Massachusetts | Nelly Panesso' : 'Notary Public en Massachusetts | Nelly Panesso';
+    document.querySelectorAll('[data-lang-panel]').forEach(panel => {
+      panel.hidden = panel.dataset.langPanel !== lang;
+    });
+    document.querySelectorAll('[data-select-lang]').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.selectLang === lang));
+    });
+    if(updateHash && window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search + '#' + lang);
+    }
+  }
+  function preferredLanguage() {
+    const hash = window.location.hash.toLowerCase();
+    if(hash === '#en' || hash === '#quote-en') return 'en';
+    if(hash === '#es' || hash === '#quote-es') return 'es';
+    return (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'es';
+  }
+  document.querySelectorAll('[data-select-lang]').forEach(button => {
+    button.addEventListener('click', () => chooseLanguage(button.dataset.selectLang, true));
+  });
+  window.addEventListener('hashchange', () => chooseLanguage(preferredLanguage(), false));
+  chooseLanguage(preferredLanguage(), false);
+
   function getData(form) {
     const d = new FormData(form);
     const val = key => String(d.get(key) || '').trim();
