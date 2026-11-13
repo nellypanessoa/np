@@ -267,3 +267,120 @@ footer p:last-child { text-align: right; }
 footer p.eranios-promo:last-child{grid-column:1/-1;justify-self:stretch;text-align:left;border-top:1px solid var(--line);padding-top:1.2rem;margin:0;font-size:.87rem;font-weight:400;letter-spacing:normal;text-transform:none;line-height:1.65}
 footer .eranios-promo a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:980px){footer .eranios-promo{display:block;grid-column:1/-1}}
+
+
+/* MARCA NELLY PANESSO — verde bosque, marfil, terracota y grafito */
+body.professional-site{
+  --ink:#30312f;
+  --paper:#f3ede2;
+  --white:#fbf7ef;
+  --red:#b85c42;
+  --blue:#234b3b;
+  --aqua:#d8e2d6;
+  --line:rgba(48,49,47,.22);
+  background:var(--paper);
+  color:var(--ink);
+}
+body.professional-site .site-header{
+  background:color-mix(in srgb,var(--paper) 95%,transparent);
+}
+body.professional-site .hero-copy{
+  background:linear-gradient(145deg,#f8f2e8 0%,#f3ede2 72%,#e7ddd0 100%);
+}
+body.professional-site .hero h1 em,
+body.professional-site .brand span,
+body.professional-site .section-label span,
+body.professional-site .profile-highlights span,
+body.professional-site .editorial-cards article>span,
+body.professional-site .recognition-list article>span{
+  color:var(--red);
+}
+body.professional-site .hero-art{
+  background:var(--blue);
+  border-left:clamp(.55rem,1.2vw,1rem) solid var(--red);
+}
+body.professional-site .hero-art img{
+  filter:saturate(.9) contrast(1.03);
+}
+body.professional-site .hero-art figcaption{
+  background:rgba(35,75,59,.92);
+  color:var(--white);
+}
+body.professional-site .professional-profile{
+  background:var(--white);
+}
+body.professional-site .professional-intro h2,
+body.professional-site .editorial-heading h2,
+body.professional-site .service-training h3,
+body.professional-site .recognition-list h3{
+  color:var(--blue);
+}
+body.professional-site .profile-highlights article{
+  background:color-mix(in srgb,var(--white) 82%,var(--paper));
+}
+body.professional-site .trajectory,
+body.professional-site .recognitions{
+  background:#dfe7dd;
+}
+body.professional-site .editorial-cards article{
+  background:#e8eee6;
+}
+body.professional-site .impact{
+  background:var(--paper);
+}
+body.professional-site .impact-stats>div{
+  background:var(--paper);
+}
+body.professional-site .bar-track{
+  background:#d5d7cf;
+}
+body.professional-site .bar-track i{
+  background:var(--blue);
+}
+body.professional-site .library-feature{
+  background:#d7e1d5;
+}
+body.professional-site .special-services{
+  background:var(--white);
+}
+body.professional-site .testimonials{
+  background:#d8e2d6;
+}
+body.professional-site .contact{
+  background:var(--red);
+  color:var(--white);
+}
+body.professional-site .contact h2{
+  color:#fbf7ef;
+}
+body.professional-site .testimonial-link,
+body.professional-site .contact-direct{
+  background:var(--blue);
+}
+body.professional-site .testimonial-link:hover,
+body.professional-site .testimonial-link:focus-visible,
+body.professional-site .contact-direct:hover,
+body.professional-site .contact-direct:focus-visible{
+  background:var(--red);
+}
+body.professional-site .community.dark-section{
+  background:#10192a;
+  color:#fffaf2;
+}
+body.professional-site .community .section-label span,
+body.professional-site .community .kicker{
+  color:#ff745c;
+}
+body.professional-site .community .community-copy,
+body.professional-site .community .platform-stories p:not(.kicker){
+  color:#d7dbe2;
+}
+body.professional-site .community .platform-stories article{
+  border-color:rgba(255,255,255,.3);
+}
+@media(max-width:800px){
+  body.professional-site .hero-art{
+    border-left:0;
+    border-top:.65rem solid var(--red);
+  }
+}
