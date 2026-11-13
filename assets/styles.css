@@ -386,3 +386,66 @@ body.professional-site .community .platform-stories article{
     border-top:.65rem solid var(--red);
   }
 }
+
+
+/* HUB DE CONTENIDO ARCHIVÍSTICO — organización de canales */
+body.professional-site .ca-hub-nav{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1px;
+  margin:3.5rem 0 1rem;
+  background:rgba(255,255,255,.24);
+  border:1px solid rgba(255,255,255,.24);
+}
+body.professional-site .ca-hub-nav a{
+  position:relative;
+  min-height:9.5rem;
+  padding:1.35rem 2.4rem 1.35rem 1.35rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:1rem;
+  background:#17293a;
+  color:#f5f7f7;
+  text-decoration:none;
+  transition:background .2s ease,color .2s ease;
+}
+body.professional-site .ca-hub-nav a.ca-hub-featured{
+  grid-column:span 2;
+  background:#e6e7d8;
+  color:#17293a;
+}
+body.professional-site .ca-hub-nav span{
+  font:400 clamp(1.35rem,2vw,2rem)/1.05 var(--serif);
+}
+body.professional-site .ca-hub-nav small{
+  max-width:18rem;
+  color:inherit;
+  opacity:.78;
+  font-size:.74rem;
+  line-height:1.45;
+}
+body.professional-site .ca-hub-nav b{
+  position:absolute;
+  right:1.25rem;
+  top:1.15rem;
+  color:#78c0bc;
+  font-size:1.1rem;
+}
+body.professional-site .ca-hub-nav a.ca-hub-featured b{color:#1b6d76}
+body.professional-site .ca-hub-nav a:hover,
+body.professional-site .ca-hub-nav a:focus-visible{
+  background:#1b6d76;
+  color:#fff;
+}
+body.professional-site .ca-hub-nav a:hover b,
+body.professional-site .ca-hub-nav a:focus-visible b{color:#fff}
+@media(max-width:900px){
+  body.professional-site .ca-hub-nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.professional-site .ca-hub-nav a.ca-hub-featured{grid-column:span 2}
+}
+@media(max-width:560px){
+  body.professional-site .ca-hub-nav{grid-template-columns:1fr}
+  body.professional-site .ca-hub-nav a,
+  body.professional-site .ca-hub-nav a.ca-hub-featured{grid-column:1;min-height:7.6rem}
+}
