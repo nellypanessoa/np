@@ -300,7 +300,9 @@ body.professional-site .hero-art{
   border-left:clamp(.55rem,1.2vw,1rem) solid var(--red);
 }
 body.professional-site .hero-art img{
-  filter:saturate(.9) contrast(1.03);
+  filter:saturate(.95) contrast(1.02);
+  mix-blend-mode:normal;
+  object-position:55% center;
 }
 body.professional-site .hero-art figcaption{
   background:rgba(35,75,59,.92);
