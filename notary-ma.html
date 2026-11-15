@@ -67,6 +67,28 @@
     .np-quote-button:hover,.np-quote-button:focus-visible,.np-hero-action:focus-visible{outline:2px solid var(--red);outline-offset:3px}
     .np-quote-status{font-weight:600;color:var(--blue);min-height:1.4rem}
     @media(max-width:650px){.np-quote-grid{grid-template-columns:1fr}.np-quote-actions{flex-direction:column}.np-quote-button{width:100%}}
+
+    /* Information and FAQ sections: consistent with the site's existing editorial design */
+    .np-service-intro{max-width:58rem;margin-bottom:1.6rem}
+    .np-service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.7rem 0 2rem}
+    .np-service-card{min-width:0;background:#faf9f5;border:1px solid var(--line);border-radius:6px;padding:1.4rem 1.5rem}
+    .np-service-card .np-card-label{font:700 .75rem/1.4 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--blue)}
+    .np-service-card h3{margin:.55rem 0 .65rem;font:500 clamp(1.35rem,2.7vw,1.7rem)/1.16 var(--serif)}
+    .np-service-card p{margin:.4rem 0 0;font-size:.98rem;line-height:1.65}
+    .np-extra-service{background:#eff5f0;border-left:4px solid var(--blue);padding:1.4rem 1.6rem;margin:1.3rem 0 2.2rem}
+    .np-extra-service h3{margin:0 0 .6rem}
+    .np-extra-service p{margin:.5rem 0}
+    .np-prep-list{margin:0 0 2.2rem}
+    .np-faq{margin:2.5rem 0 0}
+    .np-faq h3{margin-bottom:1.15rem}
+    .np-faq details{border-top:1px solid var(--line);padding:.95rem .1rem}
+    .np-faq details:last-of-type{border-bottom:1px solid var(--line)}
+    .np-faq summary{cursor:pointer;font-weight:700;line-height:1.55;padding:.22rem .4rem .22rem 0}
+    .np-faq summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+    .np-faq details p{margin:.65rem 1rem .4rem 0}
+    .np-faq a{text-decoration:underline;text-underline-offset:3px}
+    .np-faq-note{color:#435160;font-size:.9rem}
+    @media(max-width:720px){.np-service-grid{grid-template-columns:1fr}.np-service-card{padding:1.15rem 1.2rem}.np-extra-service{padding:1.15rem 1.2rem}}
     .np-footer{padding:2rem clamp(1.25rem,6vw,6rem);background:var(--ink);color:var(--white);font-size:.86rem}
     .np-footer a{color:var(--aqua)}
     .np-footer p{max-width:67rem}
@@ -112,16 +134,71 @@
     </aside>
     <section class="np-content" id="es" lang="es" data-lang-panel="es" aria-labelledby="es-heading">
       <p class="kicker blue">Servicios · Massachusetts</p>
-      <h2 id="es-heading">Actos notariales</h2>
-      <ul>
-        <li>Reconocimientos de firmas (<em>acknowledgments</em>).</li>
-        <li>Presenciar la firma de documentos (<em>signature witnessings</em>).</li>
-        <li>Administrar juramentos y afirmaciones, y realizar <em>jurats</em>.</li>
-        <li>Certificar copias de documentos cuando corresponda legalmente (<em>copy certifications</em>).</li>
-      </ul>
-      <p>Si no sabes qué acto requiere tu documento, puedes indicarlo en la solicitud de cotización.</p>
+      <h2 id="es-heading">¿Qué necesitas notarizar?</h2>
+      <p class="np-service-intro">Cada documento puede requerir un acto notarial distinto. Estos son los cuatro tipos principales previstos en el <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section15" target="_blank" rel="noopener noreferrer">Chapter 222, Section 15</a>, explicados de forma sencilla.</p>
+      <div class="np-service-grid" aria-label="Tipos de actos notariales">
+        <article class="np-service-card">
+          <span class="np-card-label">01 / Acknowledgment</span>
+          <h3>Reconocimiento de firma</h3>
+          <p>La persona se presenta, acredita su identidad y reconoce que firmó voluntariamente el documento. Según corresponda, la firma puede haberse realizado antes de la cita.</p>
+        </article>
+        <article class="np-service-card">
+          <span class="np-card-label">02 / Jurat</span>
+          <h3>Firma bajo juramento</h3>
+          <p>La persona firma en presencia del Notary Public y presta juramento o afirmación sobre la veracidad de su declaración.</p>
+        </article>
+        <article class="np-service-card">
+          <span class="np-card-label">03 / Signature witnessing</span>
+          <h3>Firma presenciada</h3>
+          <p>La persona comparece, acredita su identidad y firma el documento delante del Notary Public, quien presencia el acto de firma.</p>
+        </article>
+        <article class="np-service-card">
+          <span class="np-card-label">04 / Copy certification</span>
+          <h3>Certificación de copias</h3>
+          <p>Cuando está permitido, se reproduce o supervisa la copia de un original y se comprueba que la copia sea fiel y completa. No reemplaza las copias oficiales que emiten las autoridades.</p>
+        </article>
+      </div>
+      <div class="np-extra-service">
+        <h3>¿También necesitas traducir un documento?</h3>
+        <p>Ofrezco traducciones entre español e inglés, por ejemplo, de certificados de nacimiento, matrimonio y otros documentos. <strong>La traducción es un servicio independiente de la función notarial</strong>; no implica por sí sola una notarización ni garantiza que una entidad acepte el documento.</p>
+        <p>Puedes consultar por traducción, notarización o ambos servicios mediante el formulario de cotización.</p>
+      </div>
       <h3>Antes de la cita</h3>
-      <p>La persona firmante debe presentarse con una identificación vigente aceptable y el documento completo, sin espacios en blanco. Confirmaremos ubicación, disponibilidad y cotización antes de acordar la cita.</p>
+      <ul class="np-prep-list">
+        <li>Ten a mano una identificación vigente y aceptable para verificar tu identidad.</li>
+        <li>Prepara el documento completo, sin espacios en blanco pendientes; no firmes anticipadamente si el acto requiere firmar ante el Notary Public.</li>
+        <li>Si se trata de una certificación de copia, consulta previamente si ese tipo de documento puede certificarse y ten disponible el original.</li>
+        <li>Confirma con la entidad que recibirá el documento qué tipo de acto notarial exige; no puedo escoger por ti un acto cuando ello requiera asesoramiento legal.</li>
+      </ul>
+      <div class="np-faq" aria-labelledby="np-faq-es-title">
+        <p class="kicker blue">Orientación para tus trámites</p>
+        <h3 id="np-faq-es-title">Preguntas frecuentes</h3>
+        <details>
+          <summary>¿Cómo sé qué acto notarial necesita mi documento?</summary>
+          <p>Revisa las instrucciones del documento o pregunta a la entidad que lo solicita. Puedo explicar en qué consiste cada acto, pero no dar asesoría legal sobre cuál debes elegir.</p>
+        </details>
+        <details>
+          <summary>¿Puedo notarizar un documento que utilizaré en Colombia u otro país?</summary>
+          <p>Es posible realizar en Massachusetts un acto notarial permitido por la ley estatal. Antes de la cita, consulta a la autoridad o entidad receptora si necesita una apostilla, traducción u otros requisitos para aceptarlo.</p>
+        </details>
+        <details>
+          <summary>¿Puedes emitir la apostilla?</summary>
+          <p>No. En Massachusetts, las apostillas y certificaciones oficiales las emite la <strong>Secretaría del Commonwealth</strong>, no el Notary Public. Un documento notarizado puede requerir después ese trámite, según el país y la entidad destinataria. Consulta las <a href="https://www.sec.state.ma.us/divisions/commissions/apostilles.htm" target="_blank" rel="noopener noreferrer">instrucciones oficiales para apostillas</a>.</p>
+        </details>
+        <details>
+          <summary>¿Puedes expedir copias oficiales de certificados de nacimiento o matrimonio?</summary>
+          <p>No. Las copias oficiales de registros vitales deben solicitarse a la autoridad que los expide. Puedo cotizar la traducción de esos documentos como servicio independiente, si la necesitas.</p>
+        </details>
+        <details>
+          <summary>¿La traducción incluye notarización?</summary>
+          <p>No automáticamente. Son servicios diferentes. Si una entidad solicita una declaración firmada por un traductor y un acto notarial relacionado, primero debe confirmarse qué exige la entidad receptora y qué permite la ley.</p>
+        </details>
+        <details>
+          <summary>¿Enviar el formulario significa que tengo una cita confirmada?</summary>
+          <p>No. El formulario prepara un mensaje para SMS o WhatsApp; la ubicación, la tarifa y la disponibilidad se confirman antes de acordar la cita.</p>
+        </details>
+        <p class="np-faq-note">Información general; no constituye asesoría legal. Referencias: <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222" target="_blank" rel="noopener noreferrer">Massachusetts General Laws, Chapter 222</a> y <a href="https://www.sec.state.ma.us/divisions/commissions/apostilles.htm" target="_blank" rel="noopener noreferrer">Secretaría del Commonwealth</a>.</p>
+      </div>
       <section class="np-quote" id="quote-es" aria-labelledby="quote-es-heading">
         <p class="kicker blue">Contacto</p>
         <h3 id="quote-es-heading">Solicita tu cotización</h3>
@@ -131,11 +208,11 @@
         <label for="np-es-fullName"><span>Nombre y apellido</span><input id="np-es-fullName" name="fullName" type="text" required maxlength="90" autocomplete="name" placeholder="Ej. María López"></label>
         <label for="np-es-phone"><span>Teléfono de contacto</span><input id="np-es-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel" placeholder="Ej. (508) 555-0123"></label>
         <label for="np-es-email"><span>Correo electrónico (opcional)</span><input id="np-es-email" name="email" type="email" maxlength="110" autocomplete="email" placeholder="Ej. nombre@correo.com"></label>
-        <label for="np-es-city"><span>Ciudad o pueblo de Massachusetts</span><select id="np-es-city" name="city" required><option value="">Selecciona una ciudad o pueblo</option></select></label>
-        <label for="np-es-service"><span>Tipo de acto notarial</span><select id="np-es-service" name="service" required><option value="">Selecciona una opción</option><option value="unknown">No sé qué acto requiere mi documento</option><option value="ack">Reconocimiento de firma (acknowledgment)</option><option value="witness">Presenciar firma (signature witnessing)</option><option value="jurat">Jurat (firma bajo juramento)</option><option value="oath">Juramento o afirmación</option><option value="copycert">Certificación de copia, si está permitida</option><option value="other">Otro / consultar</option></select></label>
+        <label for="np-es-city"><span>Ciudad o pueblo de Massachusetts (o ubicación para traducción)</span><select id="np-es-city" name="city" required><option value="">Selecciona una ciudad o pueblo</option><option value="Fuera de Massachusetts (solo traducción)">Fuera de Massachusetts (solo traducción)</option></select></label>
+        <label for="np-es-service"><span>Servicio que necesitas</span><select id="np-es-service" name="service" required><option value="">Selecciona una opción</option><option value="unknown">No sé qué acto requiere mi documento</option><option value="ack">Reconocimiento de firma (acknowledgment)</option><option value="witness">Presenciar firma (signature witnessing)</option><option value="jurat">Jurat (firma bajo juramento)</option><option value="oath">Juramento o afirmación</option><option value="copycert">Certificación de copia, si está permitida</option><option value="translation">Traducción de documentos (servicio separado)</option><option value="translation-notary">Traducción y consulta de acto notarial</option><option value="other">Otro / consultar</option></select></label>
         <label for="np-es-doc"><span>Nombre o tipo de documento</span><input id="np-es-doc" name="doc" type="text" required maxlength="100" placeholder="Ej. Poder especial (sin datos privados)"></label>
         <label for="np-es-pages"><span>Cantidad de hojas</span><input id="np-es-pages" name="pages" type="number" required min="1" max="500" step="1" inputmode="numeric" placeholder="1"></label>
-        <label for="np-es-signers"><span>Número de personas que deben firmar</span><input id="np-es-signers" name="signers" type="number" required min="1" max="50" step="1" inputmode="numeric" placeholder="1"></label>
+        <label for="np-es-signers"><span>Personas que deben firmar (si aplica)</span><input id="np-es-signers" name="signers" type="number" required min="1" max="50" step="1" inputmode="numeric" placeholder="1"></label>
         <label for="np-es-date"><span>Fecha preferida (opcional)</span><input id="np-es-date" name="date" type="date" ></label>
         <label class="np-quote-wide" for="np-es-note"><span>Información adicional (opcional)</span><textarea id="np-es-note" name="note" rows="3" maxlength="180" placeholder="Ej. Tengo dos documentos distintos"></textarea></label>
         </div>
@@ -149,15 +226,71 @@
     <section class="np-content np-english" id="en" lang="en" data-lang-panel="en" aria-labelledby="en-heading">
       <div class="np-inner">
         <p class="kicker blue">Services · Massachusetts</p>
-        <h2 id="en-heading">Notarial acts</h2>
-        <ul>
-          <li>Acknowledgments and signature witnessing.</li>
-          <li>Oaths, affirmations, and jurats.</li>
-          <li>Copy certifications when permitted under applicable law.</li>
-        </ul>
-        <p>Not sure which act your document requires? Select that option when requesting your quote.</p>
+        <h2 id="en-heading">Which service do you need?</h2>
+        <p class="np-service-intro">Different documents may require different notarial acts. Here are the four principal acts described in <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222/Section15" target="_blank" rel="noopener noreferrer">Massachusetts General Laws, Chapter 222, Section 15</a>.</p>
+        <div class="np-service-grid" aria-label="Types of notarial acts">
+          <article class="np-service-card">
+            <span class="np-card-label">01 / Acknowledgment</span>
+            <h3>Acknowledgment</h3>
+            <p>The signer appears in person, provides satisfactory identification, and acknowledges having signed willingly. Depending on the document, the signature may have been made before the appointment.</p>
+          </article>
+          <article class="np-service-card">
+            <span class="np-card-label">02 / Jurat</span>
+            <h3>Jurat</h3>
+            <p>The signer signs in the Notary Public's presence and takes an oath or affirmation regarding the truthfulness of the statement.</p>
+          </article>
+          <article class="np-service-card">
+            <span class="np-card-label">03 / Signature witnessing</span>
+            <h3>Signature witnessing</h3>
+            <p>The signer appears in person, establishes identity, and signs the document while the Notary Public witnesses the signature.</p>
+          </article>
+          <article class="np-service-card">
+            <span class="np-card-label">04 / Copy certification</span>
+            <h3>Copy certification</h3>
+            <p>When permitted, the Notary Public makes or supervises a copy of an original and checks that it is accurate and complete. This does not replace official certified copies issued by public authorities.</p>
+          </article>
+        </div>
+        <div class="np-extra-service">
+          <h3>Need a document translated?</h3>
+          <p>I also offer English–Spanish and Spanish–English translations, including birth certificates, marriage certificates, and other documents. <strong>Translation is separate from my notarial services</strong>; it does not automatically include notarization or guarantee acceptance by a receiving authority.</p>
+          <p>You may inquire about translation, notarization, or both in the quote form below.</p>
+        </div>
         <h3>Before your appointment</h3>
-        <p>The signer must appear in person with acceptable current identification and a complete document without blank spaces. We will confirm the location, availability, and quote before arranging an appointment.</p>
+        <ul class="np-prep-list">
+          <li>Bring current, acceptable identification for identity verification.</li>
+          <li>Have your complete document ready with no unfilled blanks; do not sign in advance if your notarial act requires signing before the Notary Public.</li>
+          <li>For copy certification, confirm that the type of document is eligible and bring the original.</li>
+          <li>Ask the receiving organization which notarial act it requires. I cannot provide legal advice about which act to choose.</li>
+        </ul>
+        <div class="np-faq" aria-labelledby="np-faq-en-title">
+          <p class="kicker blue">Helpful information</p>
+          <h3 id="np-faq-en-title">Frequently asked questions</h3>
+          <details>
+            <summary>How do I know which notarial act my document needs?</summary>
+            <p>Check the document instructions or contact the organization requesting it. I can explain what each act involves, but I cannot provide legal advice about which one you should select.</p>
+          </details>
+          <details>
+            <summary>Can you notarize a document for use abroad?</summary>
+            <p>I can perform notarial acts authorized under Massachusetts law. Confirm with the receiving authority whether an apostille, translation, or other requirements are needed for use in another country.</p>
+          </details>
+          <details>
+            <summary>Can you issue an apostille?</summary>
+            <p>No. In Massachusetts, apostilles and official authentications are issued by the <strong>Secretary of the Commonwealth</strong>, not a Notary Public. A notarized document may need that additional step depending on its destination and purpose. See the <a href="https://www.sec.state.ma.us/divisions/commissions/apostilles.htm" target="_blank" rel="noopener noreferrer">official apostille instructions</a>.</p>
+          </details>
+          <details>
+            <summary>Can you issue official copies of birth or marriage certificates?</summary>
+            <p>No. Official vital-record certificates and certified copies must be obtained from the issuing authority. I can provide a separate translation quote if you need one.</p>
+          </details>
+          <details>
+            <summary>Does a translation include notarization?</summary>
+            <p>Not automatically. These are separate services. If a receiving organization requires a translator-signed statement and a related notarial act, its requirements and the applicable notarial rules must first be confirmed.</p>
+          </details>
+          <details>
+            <summary>Does sending the quote form book an appointment?</summary>
+            <p>No. The form prepares an SMS or WhatsApp message. Appointment availability, location, and fees will be confirmed before a booking is agreed.</p>
+          </details>
+          <p class="np-faq-note">General information only; not legal advice. References: <a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter222" target="_blank" rel="noopener noreferrer">Massachusetts General Laws, Chapter 222</a> and the <a href="https://www.sec.state.ma.us/divisions/commissions/apostilles.htm" target="_blank" rel="noopener noreferrer">Secretary of the Commonwealth</a>.</p>
+        </div>
         <section class="np-quote" id="quote-en" aria-labelledby="quote-en-heading">
         <p class="kicker blue">Contact</p>
         <h3 id="quote-en-heading">Request a quote</h3>
@@ -167,11 +300,11 @@
         <label for="np-en-fullName"><span>Full name</span><input id="np-en-fullName" name="fullName" type="text" required maxlength="90" autocomplete="name" placeholder="E.g. Maria Lopez"></label>
         <label for="np-en-phone"><span>Contact phone</span><input id="np-en-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel" placeholder="E.g. (508) 555-0123"></label>
         <label for="np-en-email"><span>Email address (optional)</span><input id="np-en-email" name="email" type="email" maxlength="110" autocomplete="email" placeholder="E.g. name@email.com"></label>
-        <label for="np-en-city"><span>Massachusetts city or town</span><select id="np-en-city" name="city" required><option value="">Select a city or town</option></select></label>
-        <label for="np-en-service"><span>Type of notarial act</span><select id="np-en-service" name="service" required><option value="">Select an option</option><option value="unknown">I'm not sure which act I need</option><option value="ack">Acknowledgment</option><option value="witness">Signature witnessing</option><option value="jurat">Jurat</option><option value="oath">Oath or affirmation</option><option value="copycert">Copy certification, when permitted</option><option value="other">Other / please advise</option></select></label>
+        <label for="np-en-city"><span>Massachusetts city or town (or translation location)</span><select id="np-en-city" name="city" required><option value="">Select a city or town</option><option value="Outside Massachusetts (translation only)">Outside Massachusetts (translation only)</option></select></label>
+        <label for="np-en-service"><span>Service requested</span><select id="np-en-service" name="service" required><option value="">Select an option</option><option value="unknown">I'm not sure which act I need</option><option value="ack">Acknowledgment</option><option value="witness">Signature witnessing</option><option value="jurat">Jurat</option><option value="oath">Oath or affirmation</option><option value="copycert">Copy certification, when permitted</option><option value="translation">Document translation (separate service)</option><option value="translation-notary">Translation and notarial act inquiry</option><option value="other">Other / please advise</option></select></label>
         <label for="np-en-doc"><span>Document name or type</span><input id="np-en-doc" name="doc" type="text" required maxlength="100" placeholder="E.g. Power of attorney (no private details)"></label>
         <label for="np-en-pages"><span>Number of pages</span><input id="np-en-pages" name="pages" type="number" required min="1" max="500" step="1" inputmode="numeric" placeholder="1"></label>
-        <label for="np-en-signers"><span>Number of people signing</span><input id="np-en-signers" name="signers" type="number" required min="1" max="50" step="1" inputmode="numeric" placeholder="1"></label>
+        <label for="np-en-signers"><span>People signing (if applicable)</span><input id="np-en-signers" name="signers" type="number" required min="1" max="50" step="1" inputmode="numeric" placeholder="1"></label>
         <label for="np-en-date"><span>Preferred date (optional)</span><input id="np-en-date" name="date" type="date" ></label>
         <label class="np-quote-wide" for="np-en-note"><span>Additional details (optional)</span><textarea id="np-en-note" name="note" rows="3" maxlength="180" placeholder="E.g. I have two separate documents"></textarea></label>
         </div>
@@ -240,9 +373,9 @@
     const en = form.dataset.lang === 'en';
     const out = en ?
       ['NOTARY PUBLIC - QUOTE REQUEST', 'Name: ' + d.fullName, 'Phone: ' + d.phone, 'City (MA): ' + d.city,
-       'Notarial act: ' + d.service, 'Document: ' + d.doc, 'Pages: ' + d.pages, 'Signers: ' + d.signers] :
+       'Notarial act: ' + d.service, 'Document: ' + d.doc, 'Pages: ' + d.pages, 'Signers: ' + (d.signers || 'Not applicable')] :
       ['COTIZACION - NOTARY PUBLIC', 'Nombre: ' + d.fullName, 'Telefono: ' + d.phone, 'Ciudad (MA): ' + d.city,
-       'Acto notarial: ' + d.service, 'Documento: ' + d.doc, 'Hojas: ' + d.pages, 'Firmantes: ' + d.signers];
+       'Acto notarial: ' + d.service, 'Documento: ' + d.doc, 'Hojas: ' + d.pages, 'Firmantes: ' + (d.signers || 'No aplica')];
     if(d.email) out.push((en ? 'Email: ' : 'Correo: ') + d.email);
     if(d.date) out.push((en ? 'Preferred date: ' : 'Fecha preferida: ') + d.date);
     if(d.note) out.push((en ? 'Details: ' : 'Detalles: ') + d.note);
@@ -286,6 +419,17 @@
   }
   document.querySelectorAll('.np-quote-form').forEach(form => {
     const en = form.dataset.lang === 'en';
+    const serviceField = form.querySelector('select[name="service"]');
+    const signersField = form.querySelector('input[name="signers"]');
+    function syncTranslationFields() {
+      const translationOnly = serviceField && serviceField.value === 'translation';
+      if(signersField) {
+        signersField.required = !translationOnly;
+        if(translationOnly) signersField.value = '';
+      }
+    }
+    serviceField?.addEventListener('change', syncTranslationFields);
+    syncTranslationFields();
     form.addEventListener('submit', event => {
       event.preventDefault();
       if(!valid(form)) return;
