@@ -31,7 +31,7 @@ a {color:var(--teal)}
 .eyebrow {font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#b7d3d2;font-weight:800}
 h1 {font-size:clamp(29px,4.7vw,55px);line-height:1.08;letter-spacing:-.035em;margin:14px 0 16px;max-width:900px}
 .lead {font-size:17px;max-width:710px;color:#d4e0e7;margin:0}
-.numbers {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:27px}
+.numbers {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:27px}
 .number {background:#ffffff12;border:1px solid #ffffff25;border-radius:12px;padding:13px 17px;min-width:0}
 .number b {display:block;font-size:23px;line-height:1.2}
 .number span {display:block;font-size:11px;color:#cad9e0;margin-top:2px}
@@ -97,6 +97,7 @@ body{background:linear-gradient(180deg,#fffaf8 0%,#f7fbfc 100%);color:var(--ink)
 .number:nth-child(2){background:#f9dcc8}
 .number:nth-child(3){background:#f8e8ad}
 .number:nth-child(4){background:#cfeee8}
+.number:nth-child(5){background:#dff2fb}
 .number span{color:#53606a}
 .youtube,.loadmore{background:#0d5ec4}
 .footer{background:linear-gradient(135deg,#f9d8df,#e7f5fc);color:#27323a}
@@ -113,7 +114,7 @@ input:focus,select:focus{outline-color:#9edbd366;border-color:#0d5ec4}
   <nav class="nav"><a class="brand" href="catalogo-audiovisual.html" aria-label="Contenido Archivístico, catálogo audiovisual"><span class="brandmark">CA.</span><span>Contenido Archivístico</span></a><div class="social-nav"><a class="navlink" href="https://www.youtube.com/@Contenidoarchivistico" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a class="navlink" href="https://www.instagram.com/contenidoarchivistico/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a class="navlink" href="https://open.spotify.com/show/4ZFmK2MI6AqsVGSVB5mVos" target="_blank" rel="noopener noreferrer">Spotify ↗</a><a class="navlink" href="https://whatsapp.com/channel/0029Var2Mly0VycOC7sT243K" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></div></nav>
   <section class="hero"><span class="eyebrow">Contenido Archivístico · Entrevistas · conferencias · conversatorios</span><h1>Catálogo audiovisual de Contenido Archivístico</h1><p class="lead">Descubre entrevistas, conferencias y conversatorios sobre archivística y gestión documental. Encuentra contenidos por título, invitado, temática, tipo, idioma, país o año.</p>
   <div class="hero-social"><a href="https://www.youtube.com/@Contenidoarchivistico" target="_blank" rel="noopener noreferrer">▶ Explorar YouTube ↗</a><a class="instagram" href="https://www.instagram.com/contenidoarchivistico/" target="_blank" rel="noopener noreferrer">◎ Seguir en Instagram ↗</a><a class="instagram" href="https://open.spotify.com/show/4ZFmK2MI6AqsVGSVB5mVos" target="_blank" rel="noopener noreferrer">♫ Escuchar en Spotify ↗</a></div>
-  <div class="numbers"><div class="number"><b id="total">145</b><span>Videos catalogados</span></div><div class="number"><b id="country-total">22</b><span>Países representados</span></div><div class="number"><b id="theme-total">8</b><span>Temáticas</span></div><div class="number"><b id="guest-total">137</b><span>Invitados y expositores</span></div></div>
+  <div class="numbers"><div class="number"><b id="total">145</b><span>Videos catalogados</span></div><div class="number"><b id="country-total">22</b><span>Países representados</span></div><div class="number"><b id="theme-total">8</b><span>Temáticas</span></div><div class="number"><b id="guest-total">137</b><span>Invitados y expositores</span></div><div class="number"><b id="language-total">3</b><span>Idiomas originales</span></div></div>
   </section>
  </div>
 </header>
@@ -167,6 +168,7 @@ $("total").textContent=VIDEOS.length;
 $("country-total").textContent=countries.length;
 $("theme-total").textContent=topics.length;
 $("guest-total").textContent=guests.length;
+$("language-total").textContent=languages.length;
 function node(tag,cls,txt){const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n}
 function link(txt,url,cls){const a=node("a",cls,txt);a.href=url;a.target="_blank";a.rel="noopener noreferrer";return a}
 function ficha(v){
