@@ -67,7 +67,6 @@ select:disabled {color:#95a0a6;background:#f3f4f3}
 .tag.missing {background:#f8f8f5;color:#748187;border-color:#e6e7e4}
 .tag.type {background:#fff1e8;border-color:#f1c9b5;color:#874a31;font-weight:720}
 .tag.language {background:#eef3ff;border-color:#ccd9f3;color:#385983}
-.tag.featured {background:#fff8d8;border-color:#ead57b;color:#6f5a13;font-weight:720}
 .links {margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .links a {text-decoration:none;font-size:12px;font-weight:750}
 .youtube {background:var(--navy);border-radius:7px;padding:8px 11px;color:white!important}
@@ -193,7 +192,6 @@ function ficha(v){
  const when=new Date(v.fecha+"T12:00:00Z").toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"});
  body.appendChild(node("div","meta",when+(v.paises.length?" · "+v.paises.join(" · "):"")));
  const tags=node("div","tags");
- if(v.miniatura_nueva)tags.appendChild(node("span","tag featured","Miniatura nueva"));
  if(v.tipo)tags.appendChild(node("span","tag type",v.tipo));
  if(v.idioma)tags.appendChild(node("span","tag language","Idioma: "+v.idioma));
  if(v.temas.length){v.temas.forEach(t=>tags.appendChild(node("span","tag",t)))}else{tags.appendChild(node("span","tag missing","Temática por clasificar"))}
