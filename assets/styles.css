@@ -519,3 +519,71 @@ body.professional-site .impact-stats>div:nth-child(3){background:#f8e8ad}
 body.professional-site .impact-stats>div:nth-child(4){background:#cfeee8}
 body.professional-site .library-feature{background:linear-gradient(135deg,#dff5f2,#e7f5fc)}
 body.professional-site .impact .testimonial-link{background:#0d5ec4}
+
+
+/* VISTA PREVIA COMPACTA DE CONTENIDO ARCHIVÍSTICO */
+body.professional-site .community-preview{
+  padding:clamp(4.5rem,8vw,7rem) clamp(1.25rem,6vw,6rem);
+  background:linear-gradient(135deg,#fff8f6 0%,#f7fbfa 52%,#eef9fc 100%);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+body.professional-site .community-preview-grid{
+  display:grid;
+  grid-template-columns:minmax(18rem,.82fr) minmax(0,1.18fr);
+  gap:clamp(2.5rem,7vw,7rem);
+  align-items:center;
+  margin-top:3.5rem;
+}
+body.professional-site .community-preview figure{
+  margin:0;
+  background:#fff;
+  border:1px solid #e2ebef;
+  box-shadow:0 18px 50px rgba(63,99,121,.12);
+}
+body.professional-site .community-preview figure img{width:100%;height:auto}
+body.professional-site .community-preview h2{
+  margin:.5rem 0 1.4rem;
+  color:#27323a;
+  font:400 clamp(2.5rem,5vw,5rem)/.98 var(--serif);
+  letter-spacing:-.045em;
+}
+body.professional-site .community-preview-copy>p:not(.kicker){
+  max-width:45rem;
+  color:#53606a;
+  font-size:1.05rem;
+}
+body.professional-site .community-preview-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.8rem;
+  margin-top:2rem;
+}
+body.professional-site .community-preview-actions a{
+  display:inline-flex;
+  justify-content:space-between;
+  gap:1.4rem;
+  padding:.9rem 1rem;
+  border:1px solid #0d5ec4;
+  color:#0d5ec4;
+  text-decoration:none;
+  font-weight:700;
+}
+body.professional-site .community-preview-actions a.ca-primary{
+  background:#0d5ec4;
+  color:#fff;
+}
+body.professional-site .community-preview-actions a:hover,
+body.professional-site .community-preview-actions a:focus-visible{
+  background:#27323a;
+  border-color:#27323a;
+  color:#fff;
+}
+@media(max-width:800px){
+  body.professional-site .community-preview-grid{grid-template-columns:1fr;gap:2.5rem}
+  body.professional-site .community-preview figure{width:min(100%,34rem)}
+}
+@media(max-width:560px){
+  body.professional-site .community-preview-actions{flex-direction:column}
+  body.professional-site .community-preview-actions a{width:100%}
+}
