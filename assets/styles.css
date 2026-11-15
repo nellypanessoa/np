@@ -51,9 +51,18 @@ nav a:hover, nav a:focus-visible { color: var(--red); }
 .profile-highlights span { display: block; color: var(--red); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .profile-highlights strong { display: block; margin: 1.4rem 0 .7rem; font: 400 1.6rem/1.05 var(--serif); }
 .profile-highlights p { margin: 0; font-size: .88rem; }
-.professional-links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
-.professional-links a { display: inline-flex; gap: .7rem; border-bottom: 1px solid currentColor; padding: .35rem 0; text-decoration: none; font-weight: 600; font-size: .86rem; }
-.professional-links a:hover { color: var(--red); }
+.professional-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.professional-links a { display: inline-flex; align-items: center; gap: .8rem; min-height: 4rem; padding: .7rem 1rem; border: 1px solid var(--line); background: var(--paper); text-decoration: none; font-size: .86rem; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.professional-links a:hover, .professional-links a:focus-visible { color: var(--ink); border-color: var(--red); box-shadow: 0 8px 22px rgba(16,25,42,.08); transform: translateY(-2px); }
+.platform-icon { width: 1.65rem; height: 1.65rem; flex: 0 0 auto; }
+.platform-icon.cvlac { color: var(--blue); }
+.platform-icon.linkedin { color: #0a66c2; }
+.platform-link-copy { display: grid; gap: .05rem; line-height: 1.2; }
+.platform-link-copy strong { font-size: .92rem; }
+.platform-link-copy small { color: #58606c; font-size: .72rem; font-weight: 500; }
+.platform-arrow { margin-left: .5rem; color: var(--red); font-size: 1rem; }
+.inline-platform-icon { width: 1.2rem; height: 1.2rem; flex: 0 0 auto; color: var(--blue); }
+.text-link.platform-text-link { align-items: center; }
 .profile-grid { margin-top: 4rem; display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(3rem, 9vw, 8rem); align-items: start; }
 .profile h2, .community h2, .service-copy h2, .advisory h2, .contact h2 { font: 400 clamp(3rem, 6vw, 6rem)/.95 var(--serif); letter-spacing: -.045em; margin: 0; }
 .profile-copy { max-width: 38rem; font-size: 1.08rem; }
