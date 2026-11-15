@@ -135,7 +135,7 @@ input:focus,select:focus{outline-color:#9edbd366;border-color:#0d5ec4}
    
   </aside>
   <section aria-label="Resultados">
-   <div class="content-top"><div><h2>Resultados</h2><span class="count" id="count">Cargando catálogo…</span></div><label class="sort" for="sort">Ordenar <select id="sort"><option value="featured">Orden recomendado</option><option value="newest">Más recientes</option><option value="oldest">Más antiguos</option><option value="title">Título A–Z</option></select></label></div>
+   <div class="content-top"><div><h2>Resultados</h2><span class="count" id="count">Cargando catálogo…</span></div><label class="sort" for="sort">Ordenar <select id="sort"><option value="">Orden predeterminado</option><option value="newest">Más recientes</option><option value="oldest">Más antiguos</option><option value="title">Título A–Z</option></select></label></div>
    <div class="cards" id="results"></div>
    <button id="loadmore" class="loadmore" type="button" hidden>Mostrar más videos</button>
    <div class="bottom"><b>Sobre este catálogo</b><p>Explora entrevistas, conferencias y conversatorios de Contenido Archivístico. Cada ficha indica su tipo de contenido e idioma original, enlaza al video en YouTube y, cuando está disponible, a su versión de audio en Spotify.</p></div>
@@ -216,8 +216,9 @@ function candidates(){
  );
  const sort=$("sort").value;
  if(sort==="title")matched.sort((a,b)=>a.titulo_original.localeCompare(b.titulo_original,"es"));
- else if(sort==="featured")matched.sort((a,b)=>(Number(b.miniatura_nueva)-Number(a.miniatura_nueva))||b.fecha.localeCompare(a.fecha));
- else matched.sort((a,b)=>sort==="newest"?b.fecha.localeCompare(a.fecha):a.fecha.localeCompare(b.fecha));
+ else if(sort==="newest")matched.sort((a,b)=>b.fecha.localeCompare(a.fecha));
+ else if(sort==="oldest")matched.sort((a,b)=>a.fecha.localeCompare(b.fecha));
+ else matched.sort((a,b)=>(Number(b.miniatura_nueva)-Number(a.miniatura_nueva))||b.fecha.localeCompare(a.fecha));
  return matched;
 }
 function render(){
@@ -231,6 +232,6 @@ function render(){
 $("query").addEventListener("input",()=>{state.shown=12;render()});
 ["guest","theme","year","country","type","language","sort"].forEach(id=>$(id).addEventListener("change",()=>{state.shown=12;render()}));
 $("loadmore").addEventListener("click",()=>{state.shown+=12;render()});
-$("reset").addEventListener("click",()=>{$("query").value="";$("guest").value="";$("theme").value="";$("year").value="";$("country").value="";$("type").value="";$("language").value="";$("sort").value="featured";state.shown=12;render()});
+$("reset").addEventListener("click",()=>{$("query").value="";$("guest").value="";$("theme").value="";$("year").value="";$("country").value="";$("type").value="";$("language").value="";$("sort").value="";state.shown=12;render()});
 render();
 </script></body></html>
