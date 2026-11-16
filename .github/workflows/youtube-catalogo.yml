@@ -1,0 +1,73 @@
+name: Actualizar catálogo de YouTube y publicar sitio
+
+on:
+  schedule:
+    - cron: "15 12 * * *" # Diario, 12:15 UTC
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: catalogo-youtube-y-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      YOUTUBE_CHANNEL_HANDLE: "@Contenidoarchivistico"
+    steps:
+      - name: Obtener archivos del sitio
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Indicar si falta la clave de YouTube
+        if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && env.YOUTUBE_API_KEY == ''
+        run: echo "::notice::Sin YOUTUBE_API_KEY. El catálogo no se sincroniza hasta configurar el secreto."
+
+      - name: Sincronizar videos públicos de YouTube
+        if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && env.YOUTUBE_API_KEY != ''
+        run: python3 scripts/sync_youtube_catalog.py
+
+      - name: Guardar cambios al catálogo en GitHub
+        if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && env.YOUTUBE_API_KEY != ''
+        run: |
+          git add catalogo-audiovisual.html contenido-archivistico.html
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Sincronizar catálogo audiovisual con YouTube"
+            git push
+          else
+            echo "El catálogo ya está actualizado."
+          fi
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar archivos para publicación
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "."
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Publicar página actualizada
+        id: deployment
+        uses: actions/deploy-pages@v4
