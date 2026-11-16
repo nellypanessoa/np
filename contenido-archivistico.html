@@ -38,6 +38,16 @@
     .social-icon svg{width:1.55rem;height:1.55rem;fill:currentColor}.social-icon .icon-line{fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.social-icon:not(:hover):not(:focus-visible) .icon-line{stroke:currentColor}.social-icon .icon-cutout{fill:#fff}.youtube-icon:hover,.youtube-icon:focus-visible{background:#ff0033;border-color:#ff0033}.spotify-icon:hover,.spotify-icon:focus-visible{background:#1db954;border-color:#1db954}.instagram-icon:hover,.instagram-icon:focus-visible{background:#c13584;border-color:#c13584}.whatsapp-icon:hover,.whatsapp-icon:focus-visible{background:#25d366;border-color:#25d366}.linkedin-icon:hover,.linkedin-icon:focus-visible{background:#0a66c2;border-color:#0a66c2}.icon-on-fill{stroke:#fff!important}.icon-phone{stroke-width:1.5!important}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(max-width:600px){.hero-actions{align-items:stretch}.social-actions{justify-content:flex-start}.social-icon{width:3rem!important;height:3rem}}
+
+    /* Botón 3D en el logo original: acceso directo al catálogo */
+    .logo-card{background:transparent;border:0;box-shadow:none;perspective:1000px}
+    .ca-logo-3d{display:block;position:relative;overflow:hidden;text-decoration:none;background:#fff;border:1px solid #d9d7df;border-radius:18px;box-shadow:0 14px 0 #b7cad2,0 25px 42px rgba(44,74,94,.24);transform:perspective(1000px) rotateX(3deg) rotateY(-3deg);transition:transform .25s ease,box-shadow .25s ease}
+    .ca-logo-3d img{width:100%;height:auto;display:block}
+    .ca-logo-cta{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 2rem);padding:.75rem 1rem;background:rgba(27,42,61,.94);color:#fff;border-radius:999px;text-align:center;font:800 clamp(.77rem,1.7vw,.95rem)/1.3 var(--sans);box-shadow:0 5px 13px rgba(20,30,50,.14)}
+    .ca-logo-3d:hover,.ca-logo-3d:focus-visible{transform:perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-7px);box-shadow:0 20px 0 #b7cad2,0 30px 50px rgba(44,74,94,.3)}
+    .ca-logo-3d:focus-visible{outline:3px solid #0d5ec4;outline-offset:6px}
+    .ca-logo-3d:active{transform:translateY(5px);box-shadow:0 7px 0 #b7cad2,0 12px 23px rgba(44,74,94,.22)}
+    @media(prefers-reduced-motion:reduce){.ca-logo-3d{transition:none}}
   </style>
 </head>
 <body>
@@ -51,7 +61,7 @@
   </header>
   <main id="contenido">
     <section class="hero" id="inicio"><div class="hero-grid">
-      <figure class="logo-card"><img src="assets/contenido-archivistico-logo.jpg" alt="Logo de Contenido Archivístico de Nelly Panesso"></figure>
+      <figure class="logo-card"><a class="ca-logo-3d" href="catalogo-audiovisual.html" aria-label="Abrir el catálogo audiovisual de Contenido Archivístico"><img src="assets/contenido-archivistico-logo.jpg" alt="Logo de Contenido Archivístico de Nelly Panesso"><span class="ca-logo-cta" aria-hidden="true">Explorar catálogo audiovisual ↗</span></a></figure>
       <div><p class="eyebrow">Divulgación · aprendizaje · comunidad</p><h1>Archivos, conocimiento y sociedad.</h1><p>Contenido Archivístico es una iniciativa independiente creada por <a class="profile-link" href="index.html#inicio">Nelly Panesso</a> para difundir conocimiento, compartir experiencias y mostrar la importancia de la archivística en nuestra sociedad.</p><div class="actions hero-actions">
         <a class="button primary" href="catalogo-audiovisual.html">Explorar catálogo <span>↗</span></a>
         <div class="social-actions" aria-label="Contenido Archivístico en redes sociales">
