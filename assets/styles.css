@@ -616,3 +616,50 @@ body.professional-site .community-preview-actions a:focus-visible{
   body.professional-site .community-preview-actions{flex-direction:column}
   body.professional-site .community-preview-actions a{width:100%}
 }
+
+// Botón con relieve 3D: mantiene intacta la identidad gráfica del logo original
+body.professional-site .community-preview figure{
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  perspective:1000px;
+}
+body.professional-site .community-preview .ca-logo-3d{
+  display:block;
+  position:relative;
+  overflow:hidden;
+  text-decoration:none;
+  border:1px solid #d6e3e7;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 14px 0 #bccbd3,0 23px 38px rgba(30,65,87,.21);
+  transform:perspective(1000px) rotateX(3deg) rotateY(-3deg);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+body.professional-site .community-preview .ca-logo-3d img{width:100%;height:auto;display:block}
+body.professional-site .community-preview .ca-logo-cta{
+  position:absolute;
+  left:50%;
+  bottom:1rem;
+  transform:translateX(-50%);
+  width:max-content;
+  max-width:calc(100% - 2rem);
+  padding:.7rem 1.1rem;
+  color:#fff;
+  background:rgba(16,32,50,.94);
+  border-radius:999px;
+  font:700 clamp(.77rem,1.7vw,.95rem)/1.3 var(--sans);
+  box-shadow:0 5px 13px rgba(20,30,50,.15);
+  text-align:center;
+}
+body.professional-site .community-preview .ca-logo-3d:hover,
+body.professional-site .community-preview .ca-logo-3d:focus-visible{
+  transform:perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-7px);
+  box-shadow:0 20px 0 #bccbd3,0 29px 48px rgba(30,65,87,.28);
+}
+body.professional-site .community-preview .ca-logo-3d:focus-visible{outline:3px solid #0d5ec4;outline-offset:6px}
+body.professional-site .community-preview .ca-logo-3d:active{
+  transform:translateY(5px);
+  box-shadow:0 7px 0 #bccbd3,0 12px 23px rgba(30,65,87,.22);
+}
+@media(prefers-reduced-motion:reduce){body.professional-site .community-preview .ca-logo-3d{transition:none}}
