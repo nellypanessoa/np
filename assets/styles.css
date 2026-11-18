@@ -633,7 +633,7 @@ body.professional-site .community-preview .ca-logo-3d{
   border-radius:18px;
   background:#fff;
   box-shadow:0 14px 0 #bccbd3,0 23px 38px rgba(30,65,87,.21);
-  transform:perspective(1000px) rotateX(3deg) rotateY(-3deg);
+  transform:translateY(0);
   transition:transform .25s ease,box-shadow .25s ease;
 }
 body.professional-site .community-preview .ca-logo-3d img{width:100%;height:auto;display:block}
@@ -654,7 +654,7 @@ body.professional-site .community-preview .ca-logo-cta{
 }
 body.professional-site .community-preview .ca-logo-3d:hover,
 body.professional-site .community-preview .ca-logo-3d:focus-visible{
-  transform:perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-7px);
+  transform:translateY(-7px);
   box-shadow:0 20px 0 #bccbd3,0 29px 48px rgba(30,65,87,.28);
 }
 body.professional-site .community-preview .ca-logo-3d:focus-visible{outline:3px solid #0d5ec4;outline-offset:6px}
