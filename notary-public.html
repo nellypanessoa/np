@@ -202,7 +202,7 @@
       <section class="np-quote" id="quote-es" aria-labelledby="quote-es-heading">
         <p class="kicker blue">Contacto</p>
         <h3 id="quote-es-heading">Solicita tu cotización</h3>
-        <p>Completa el formulario y elige SMS o WhatsApp. Se preparará el mensaje para que lo revises y envíes.</p>
+        <p>Completa el formulario y elige SMS, WhatsApp o correo electrónico. Se preparará un mensaje para que lo revises y envíes desde tu propia aplicación.</p><p class="np-quote-hint">También puedes escribir directamente a <a href="mailto:notarypublic2033@gmail.com">notarypublic2033@gmail.com</a>.</p>
         <form class="np-quote-form" data-lang="es">
         <div class="np-quote-grid">
         <label for="np-es-fullName"><span>Nombre y apellido</span><input id="np-es-fullName" name="fullName" type="text" required maxlength="90" autocomplete="name" placeholder="Ej. María López"></label>
@@ -216,10 +216,10 @@
         <label for="np-es-date"><span>Fecha preferida (opcional)</span><input id="np-es-date" name="date" type="date" ></label>
         <label class="np-quote-wide" for="np-es-note"><span>Información adicional (opcional)</span><textarea id="np-es-note" name="note" rows="3" maxlength="180" placeholder="Ej. Tengo dos documentos distintos"></textarea></label>
         </div>
-        <p class="np-quote-privacy">No incluyas datos sensibles ni adjuntes documentos. Esta página no almacena las respuestas; tú envías la solicitud desde SMS o WhatsApp.</p>
-        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Enviar por SMS</button><button type="button" class="np-quote-button np-whatsapp-request">Enviar por WhatsApp</button><button type="button" class="np-quote-button" disabled title="Pendiente de habilitar correo notarial">Correo electrónico (próximamente)</button><button type="button" class="np-quote-button np-copy-request">Copiar solicitud</button></div>
+        <p class="np-quote-privacy">No incluyas datos sensibles ni adjuntes documentos. Esta página no almacena las respuestas; tú envías la solicitud desde SMS, WhatsApp o tu aplicación de correo electrónico.</p>
+        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Enviar por SMS</button><button type="button" class="np-quote-button np-whatsapp-request">Enviar por WhatsApp</button><button type="button" class="np-quote-button np-email-request">Enviar por correo electrónico</button><button type="button" class="np-quote-button np-copy-request">Copiar solicitud</button></div>
         <p class="np-quote-status" role="status" aria-live="polite"></p>
-        <p class="np-quote-hint">Si el texto no aparece automáticamente, utiliza «Copiar solicitud» y pégalo en la aplicación que prefieras.</p>
+        <p class="np-quote-hint">Si el texto no aparece automáticamente, utiliza «Copiar solicitud» y pégalo en la aplicación que prefieras. El envío no es automático.</p>
         </form>
         </section>
     </section>
@@ -294,7 +294,7 @@
         <section class="np-quote" id="quote-en" aria-labelledby="quote-en-heading">
         <p class="kicker blue">Contact</p>
         <h3 id="quote-en-heading">Request a quote</h3>
-        <p>Complete the form and choose SMS or WhatsApp. Review the prepared message before sending it.</p>
+        <p>Complete the form and choose SMS, WhatsApp, or email. Review the prepared message before sending it from your own app.</p><p class="np-quote-hint">You can also email <a href="mailto:notarypublic2033@gmail.com">notarypublic2033@gmail.com</a> directly.</p>
         <form class="np-quote-form" data-lang="en">
         <div class="np-quote-grid">
         <label for="np-en-fullName"><span>Full name</span><input id="np-en-fullName" name="fullName" type="text" required maxlength="90" autocomplete="name" placeholder="E.g. Maria Lopez"></label>
@@ -308,10 +308,10 @@
         <label for="np-en-date"><span>Preferred date (optional)</span><input id="np-en-date" name="date" type="date" ></label>
         <label class="np-quote-wide" for="np-en-note"><span>Additional details (optional)</span><textarea id="np-en-note" name="note" rows="3" maxlength="180" placeholder="E.g. I have two separate documents"></textarea></label>
         </div>
-        <p class="np-quote-privacy">Do not include sensitive data or attach documents. This page does not store your answers; you send the request using SMS or WhatsApp.</p>
-        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Send by SMS</button><button type="button" class="np-quote-button np-whatsapp-request">Send by WhatsApp</button><button type="button" class="np-quote-button" disabled title="Dedicated notary email coming soon">Email (coming soon)</button><button type="button" class="np-quote-button np-copy-request">Copy request</button></div>
+        <p class="np-quote-privacy">Do not include sensitive data or attach documents. This page does not store your answers; you send the request using SMS, WhatsApp, or your email app.</p>
+        <div class="np-quote-actions"><button type="submit" class="np-quote-button primary">Send by SMS</button><button type="button" class="np-quote-button np-whatsapp-request">Send by WhatsApp</button><button type="button" class="np-quote-button np-email-request">Send by email</button><button type="button" class="np-quote-button np-copy-request">Copy request</button></div>
         <p class="np-quote-status" role="status" aria-live="polite"></p>
-        <p class="np-quote-hint">If the message text does not appear, select “Copy request” and paste it into your preferred messaging app.</p>
+        <p class="np-quote-hint">If the message text does not appear, select “Copy request” and paste it into your preferred messaging app. Messages are not sent automatically.</p>
         </form>
         </section>
       </div>
@@ -331,6 +331,7 @@
   'use strict';
   const smsNumber = '+18572011220';
   const whatsappNumber = '18572011220';
+  const contactEmail = 'notarypublic2033@gmail.com';
   function chooseLanguage(lang, updateHash) {
     if(lang !== 'es' && lang !== 'en') return;
     document.documentElement.lang = lang;
@@ -442,6 +443,13 @@
       setStatus(form, en ? 'WhatsApp will open with your request. Review the message and tap Send.' : 'Se abrirá WhatsApp con tu solicitud. Revisa el mensaje y pulsa Enviar.');
       const url = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(draft(form));
       window.open(url, '_blank', 'noopener,noreferrer');
+    });
+    form.querySelector('.np-email-request')?.addEventListener('click', () => {
+      if(!valid(form)) return;
+      const subject = en ? 'Notary Public - Quote Request' : 'Solicitud de cotización - Notary Public';
+      const mailto = 'mailto:' + contactEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(draft(form));
+      setStatus(form, en ? 'Your email app will open with your request. Review it and tap Send.' : 'Se abrirá tu aplicación de correo con la solicitud preparada. Revísala y pulsa Enviar.');
+      window.location.href = mailto;
     });
     form.querySelector('.np-copy-request')?.addEventListener('click', async () => {
       if(!valid(form)) return;
